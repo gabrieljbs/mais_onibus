@@ -1,0 +1,51 @@
+
+    .back{
+        overflow: scroll;
+        background:#acc2f9;
+        margin: auto;
+        margin-top: 0px;
+        width: 100vw;
+        height: 100vh;
+        .form{
+            
+            background-color: #fff;
+            border-radius: 15px;
+            width: 90vw;
+            height:55vh;
+            margin: auto;
+            margin-top: 25px;
+            margin-bottom: 25px;
+            @media only screen and (max-height: 900px) {
+                height: 95vh;
+                width: 55vw;
+              
+            }
+
+            ion-item{
+                margin: auto;
+                margin-top: 10px;
+                font-size: 26px;
+                border-radius: 15px;
+            }
+
+            img{
+                
+                margin: auto;
+                margin-top: 10px;
+                height: 180px;
+                width: 180px;
+                border: #000 1px solid;
+                border-radius:50%;
+            }
+            .button{
+                display: flex;
+                margin: auto;
+                margin-top: 20px;
+                ion-button{
+                    height: 50px;
+                    width: 80vw;
+                }
+            }
+            
+        }
+    }

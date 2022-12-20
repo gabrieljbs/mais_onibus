@@ -1,0 +1,17 @@
+ion-app{
+    app-header{ 
+        height: 6vh;
+    }
+
+    ion-router-outlet{
+        height: 94vh;
+        width: 100vw;
+        margin: auto;
+        margin-bottom: 0px;
+        /* overflow: scroll; */
+    }
+
+   
+        
+        
+}

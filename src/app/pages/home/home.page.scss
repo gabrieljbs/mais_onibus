@@ -1,0 +1,120 @@
+ion-content{
+    
+    --ion-color-primary: #acc2f9;
+    .form{
+        margin: auto;
+        margin-top: 2vh;
+        width: 90vw;
+        height: 40vh;
+        background-color: #FFF;
+        padding: 0px 20px;
+        border-radius: 25px;
+        @media only screen and (max-height: 1000px) {
+            height: 80vh;
+            width: 50vw;
+        }
+        
+        ion-label{
+            color: black;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        
+        .caixa{
+
+            font-size: 26px;
+            margin-top: 2vh;
+            border: 2px solid rgba(100, 98, 98, 0);
+            border-radius:  10px ;
+           
+        }
+
+        .checkbox{
+            font-size: 36px;
+            color: black;
+            margin-top: 46px;
+            display: flex;
+            justify-content:space-between;
+            
+            .box {
+                font-size: 30px;
+                
+              }
+            ion-checkbox{
+                
+                --size: 55px;
+                --background: #FFF;
+                --background-checked:#FAFF00;
+                
+            }
+            ion-checkbox::part(container) {
+                border-radius: 25px;
+                border: 6px solid #FAFF00;
+                
+              }
+            
+        }
+        .label{
+            display: flex;
+            justify-content: space-evenly;
+            font-size: 30px;
+            
+        }
+        .data{       
+            margin-top: 2vh;
+            font-size: 26px;
+            
+           .icon-date{
+            font-size: 60px;
+           }
+        }
+        .icon-date{
+            font-size: 50px;
+           }
+    }
+    ion-button{
+
+        color: black;
+        font-size: 26px;
+        --background: #FAFF00;
+        height: 87px;
+        margin-top: 2vh;
+
+    }
+    .titulo{
+        margin-top: 10vh;
+        color: rgba(0, 0, 0, 0.589);
+        font-size: 36px;
+        
+    }
+    ion-slides{
+        font-size: 26px;
+        color: black;
+        
+        .slide1{
+            background-image: url("/assets/tela.png");
+            background-size: cover;
+            height: 400px;
+            width: 350px;
+            border-radius: 25px;
+            margin: auto;
+            
+        }
+        .slide2{
+            background-image: url("/assets/tela.png");
+            background-size: cover;
+            height: 400px;
+            width: 350px;
+            border-radius: 25px;
+            margin: auto;
+        }
+        .slide3{
+            background-image: url("/assets/tela.png");
+            background-size: cover;
+            height: 400px;
+            width: 350px;
+            border-radius: 25px;
+            margin: auto;
+        }
+    }
+    
+}

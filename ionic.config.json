@@ -1,0 +1,7 @@
+{
+  "name": "mais-onibus",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

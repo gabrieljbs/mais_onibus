@@ -1,0 +1,30 @@
+
+  <div class="back">
+    <div class="form">
+      <ion-item class="box" lines="none">
+        <ion-input placeholder="Nome" type="text"[(ngModel)]="nome"></ion-input>
+      </ion-item>
+  
+      <ion-item class="box" lines="none">
+        <ion-input placeholder="Email" type="email" [(ngModel)]="email"></ion-input>
+      </ion-item>
+
+      <ion-item class="box" lines="none">
+        <ion-input placeholder="CPF" type="text"[(ngModel)]="cpf"></ion-input>
+      </ion-item>
+  
+      <ion-item class="box" lines="none">
+        <ion-input placeholder="Telefone" type="text" [(ngModel)]="telefone"></ion-input>
+      </ion-item>
+
+      <ion-item class="box" lines="none">
+        <ion-input placeholder="Senha" type="password"[(ngModel)]="password"></ion-input>
+      </ion-item>
+  
+      <ion-item class="box" lines="none">
+        <ion-input placeholder="Confirma Senha" type="password" [(ngModel)]="confimarPassword"></ion-input>
+      </ion-item>
+
+      <button (click)="cadastrar()">Cadastrar-se</button>
+    </div>
+  </div>

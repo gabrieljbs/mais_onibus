@@ -1,0 +1,47 @@
+ion-toolbar{
+  display: flex;
+    height: 6vh;
+    --background: #FAFF00;
+    
+}
+ion-title{
+  font-size: 36px;
+}
+
+ion-menu-button{
+  font-size: 100px;
+}
+
+ion-menu::part(backdrop) {
+    background-color: rgba(0, 0, 0, 0.9);
+    
+  }
+  
+  ion-menu::part(container) {
+    border-radius: 0 0px 0px 0;
+    box-shadow: 4px 0px 16px rgba(0, 0, 0, 0.18);
+    
+    
+    
+  }
+
+  ion-content{
+    font-size: 28px;
+    ion-item{
+      font-size: 28px;
+    }
+  
+  }
+  
+  img{
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    
+  }
+
+  .perfil{
+    font-size:26px;
+  }
+
+  

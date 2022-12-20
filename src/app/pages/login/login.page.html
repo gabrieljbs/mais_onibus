@@ -1,0 +1,18 @@
+
+<div class="back">
+  <div class="form">
+    
+    <ion-item class="box" lines="none">
+      <ion-input placeholder="Email" type="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-item class="box" lines="none">
+      <ion-input placeholder="Senha" type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label [routerLink]="['/cadastro']">Cadastrar</ion-label>
+      <ion-label slot="end">Esqueceu a senha</ion-label>
+    </ion-item>
+    <button expand="block" (click)="entrar()">Login</button>
+  </div>
+</div>

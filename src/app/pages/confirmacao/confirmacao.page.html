@@ -1,0 +1,38 @@
+
+
+<div class="back" >
+    
+  <div class="form" >
+    <ion-item>
+      <img class="img" src="{{rota?.img}}">
+
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>Empresa: {{rota?.empresa}}</ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label >Rota: {{rota?.origem}} - {{rota?.destino}}</ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label >Data: {{rota?.datetime}}</ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label >Placa do veculo: {{rota?.placa}}</ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>Descrição: {{rota?.desc}}</ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>Codigo: {{rota?.id}}</ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>Numero de passageiros: {{rota?.qnt_passageiro}}</ion-label>
+    </ion-item>
+
+    <div class="button">
+      <ion-button (click)="confirma()">Confirma</ion-button>
+    </div>
+    
+  </div>
+</div>
+

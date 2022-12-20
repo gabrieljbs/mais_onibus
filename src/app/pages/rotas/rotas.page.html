@@ -1,0 +1,89 @@
+  <div class="back">
+
+    <div class="form">
+      
+      <ion-grid [fixed]="true">
+        <ion-row>
+          <ion-col>
+            <ion-icon name="location-outline"></ion-icon>
+            <ion-input class="text" placeholder="Origem" [(ngModel)]="pesquisaOrigem" ></ion-input>
+          </ion-col>
+          
+          <ion-col>
+
+            <ion-datetime-button datetime="datetime" ></ion-datetime-button>
+
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime id="datetime" presentation="date"></ion-datetime>
+              </ng-template>
+            </ion-modal>
+
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col> 
+            <ion-icon name="navigate-outline"></ion-icon>
+            <ion-input class="text" placeholder="Destino" [(ngModel)]="pesquisaDestino"></ion-input></ion-col>
+
+          
+          <ion-col>
+            <ion-datetime-button datetime="datetime2" ></ion-datetime-button>
+
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime id="datetime2" presentation="date"></ion-datetime>
+              </ng-template>
+            </ion-modal>
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-button expand="block" (click)="pesquisar()">
+        <ion-icon name="search-outline"></ion-icon>
+        buscar
+      </ion-button>
+    </div>
+
+
+
+    <div class="list" lines='none'  *ngFor="let rota of rotas | async" (click)="confirma(rota.id)" > 
+      <img src="{{rota.img}}">
+      <ion-grid>
+        <ion-row>
+          <ion-col >
+            <ion-label >{{rota.empresa}}</ion-label>
+            <ion-label > - </ion-label>
+          
+            <ion-label > {{rota.origem}}, PA </ion-label>
+            <ion-icon class="arrow" name="arrow-forward-outline"></ion-icon> 
+          
+            <ion-label > {{rota.destino}}, PA</ion-label>
+          </ion-col>         
+        </ion-row>
+        
+        <ion-row>
+          <ion-col >
+            <ion-label >Codigo: </ion-label>
+            
+          
+            <ion-label  >{{rota.id}}</ion-label>
+            
+          </ion-col>         
+        </ion-row>
+
+        <ion-row class="col-bottom">
+        
+          <ion-col>
+            <ion-label >{{rota.datetime}}</ion-label>
+          </ion-col>
+          <ion-col class="col-align">
+            <ion-label >R$ {{rota.preco}}</ion-label>
+          </ion-col>         
+        </ion-row>
+      </ion-grid>
+      
+    </div>
+
+
+  </div>
