@@ -1,35 +1,82 @@
-.back{
-    background:#acc2f9;
-    margin: auto;
-    width: 100vw;
-    height: 100vh;
-    overflow:scroll;
-    .form{
-        
-        display: block;
-        margin: auto;
-        margin-top: 10vw;
-        width: 675px;
-        height: 900px;
-        background-color: #fff;
-        border-radius: 10px;
-        padding: 50px;
+ion-content{
 
-         .box{
-            margin: auto;
-            border: #000 2px solid;
-            border-radius: 10px;
-            font-size: 36px;
-            margin-top: 3vh;
+    .logo{
+        margin: auto;
+        margin-top: 34px;
+        margin-bottom: 0px;
+        width: 200px;
+        height: 54px;
+        background-image: url('/assets/logo.png');
+        background-size: cover;
+      }
+
+      .form{
+        margin: auto;
+        width: 280px;
+        height: 487px;
+        left: 55px;
+        top: 225px;
+
+        h1{
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 29px;
+            color: #000000;
+          }
+
+        ion-item{
+            border: 1px solid #A9A9A9;
+            border-radius: 5px ;
+            margin-top: 24px;
+      
+            ion-label{
+              font-family: 'Poppins';
+              font-style: normal;
+              font-weight: 400;
+              font-size: 14px;
+              line-height: 18px;
+              color: #A9A9A9;
+            }
+            ion-input{
+              
+              color: #A9A9A9;
+      
+            }
         }
-        button{
-            margin-top: 5vh;
-            font-size: 26px;
-            color: #000;
-            background:#FAFF00;
-            width: 535px;
-            height: 91px;
-            border-radius: 10px;
+
+        ion-button{
+            --background: #50C2C9;
+            margin-top: 25px;
+      
+            ion-label{
+        
+              font-family: 'Poppins';
+              font-style: normal;
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 18px;
+              
+            }
         }
-    }
+        .text{
+            margin-top: 25px;
+            margin-left: 20%;
+            margin-right: 20%;
+             label{
+               font-family: 'Poppins';
+               font-style: normal;
+               font-weight: 400;
+               font-size: 12px;
+               line-height: 18px;
+               margin: auto; 
+               color: #A9A9A9;
+               label{
+                    color:#50C2C9;
+               }
+             }
+           }
+      }
+
 }
