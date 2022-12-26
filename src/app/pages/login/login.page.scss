@@ -1,41 +1,73 @@
+ion-content{
+  --background: #fff;
+  width: 100vw;
+  height: 100vh;
 
-.back{
-    background:#acc2f9;
+  .logo{
+
     margin: auto;
-    width: 100vw;
-    height: 100vh;
+    width: 200px;
+    height: 54px;
+    background-image: url('/assets/logo.png');
+    background-size: cover;
+  }
+  .form{
 
-    .form{
-        
-        display: block;
-        margin: auto;
-        margin-top: 10vw;
-        width: 675px;
-        height: 614px;
-        background-color: #fff;
-        border-radius: 10px;
-        padding: 50px;
-       
+    margin: auto;
+    width: 280px;
+    height: 233px;
+    left: 55px;
+    top: 277px;
 
-        .box{
-            margin: auto;
-            border: #000 2px solid;
-            border-radius: 10px;
-            font-size: 36px;
-            margin-top: 3vh;
-        }
-        ion-label{
-            font-size: 26px;
-        }
-        button{
-            margin-top: 5vh;
-            font-size: 26px;
-            color: #000;
-            background:#FAFF00;
-            width: 535px;
-            height: 91px;
-            border-radius: 10px;
-        }
+    h1{
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 29px;
+      color: #000000;
+    }
+
+    ion-item{
+      border: 1px solid #A9A9A9;
+      border-radius: 5px ;
+      margin-top: 24px;
+
+      ion-label{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18px;
+        color: #A9A9A9;
+      }
+    }
+
+    .esqueceu-senha{
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 18px;
+      text-align: end;
+      color: #000000;
+      margin-left: 50%;
+    }
+
+    ion-button{
+      --background: #50C2C9;
 
     }
+
+    ion-label{
+
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      color: #A9A9A9;
+    }
+
+  }
 }

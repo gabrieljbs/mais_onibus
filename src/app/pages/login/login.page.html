@@ -1,18 +1,29 @@
+<ion-content class="login-content">
 
-<div class="back">
+  <div class="logo"></div>
+
+
+
   <div class="form">
-    
-    <ion-item class="box" lines="none">
-      <ion-input placeholder="Email" type="email" [(ngModel)]="email"></ion-input>
-    </ion-item>
 
-    <ion-item class="box" lines="none">
-      <ion-input placeholder="Senha" type="password" [(ngModel)]="password"></ion-input>
-    </ion-item>
-    <ion-item lines="none">
-      <ion-label [routerLink]="['/cadastro']">Cadastrar</ion-label>
-      <ion-label slot="end">Esqueceu a senha</ion-label>
-    </ion-item>
-    <button expand="block" (click)="entrar()">Login</button>
+    <h1>Acesse <br>a sua conta</h1>
+      <ion-item color="none">
+        <ion-label color="light">Email</ion-label>
+        <ion-input color="light" placeholder="Enter text"  ></ion-input>
+      </ion-item>
+
+      <ion-item color="none">
+        <ion-label color="light"  >Senha</ion-label>
+        <ion-input color="light" placeholder="Enter text" type="password"></ion-input>
+      </ion-item>
+
+      <ion-label class="esqueceu-senha" color="light" slot="end">Esqueceu sua senha?</ion-label>
+
+      <ion-button expand="full">
+        <ion-label>Entrar</ion-label>
+      </ion-button>
+
+      <ion-label> Ainda não possui uma conta? </ion-label>
+      <ion-label> Crie agora</ion-label>
   </div>
-</div>
+</ion-content>

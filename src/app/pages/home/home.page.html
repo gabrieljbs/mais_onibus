@@ -1,7 +1,7 @@
 
 <ion-content color="primary">
   <div class="form">
-  
+
     <ion-item class="caixa">
       <ion-label position="floating">Origem</ion-label>
       <ion-input placeholder="Origem" name="origem.nome" [(ngModel)]="origem"></ion-input>
@@ -24,7 +24,7 @@
       </ion-item>
 
     </div>
-          
+
       <ion-grid>
         <ion-row>
           <ion-col><ion-label class="label">Data de Ida</ion-label></ion-col>
@@ -37,8 +37,8 @@
               <ion-datetime-button datetime="datetime" ></ion-datetime-button>
               <ion-modal [keepContentsMounted]="true"  >
                 <ng-template>
-                  <ion-datetime  id="datetime"  
-                  presentation="date" 
+                  <ion-datetime  id="datetime"
+                  presentation="date"
                   [showDefaultButtons]="true"
                   doneText="Selecionar"
                   cancelText="Cancelar"
@@ -49,14 +49,14 @@
               </ion-modal>
             </ion-item>
         </ion-col>
-          <ion-col> 
+          <ion-col>
             <ion-item color="" lines="none">
               <ion-icon class="icon-date" name="calendar-sharp"></ion-icon>
               <ion-datetime-button datetime="datetime2" ></ion-datetime-button>
               <ion-modal [keepContentsMounted]="true"  >
                 <ng-template>
-                  <ion-datetime  id="datetime2"  
-                  presentation="date" 
+                  <ion-datetime  id="datetime2"
+                  presentation="date"
                   [showDefaultButtons]="true"
                   doneText="Selecionar"
                   cancelText="Cancelar"
@@ -70,14 +70,14 @@
         </ion-col>
         </ion-row>
       </ion-grid>
-    
+
     <ion-button expand="block" (click)="pesquisar(origem, destino)">
       <ion-icon name="search-outline"></ion-icon>
        Buscar
-    </ion-button> 
+    </ion-button>
   </div>
 
-  
+
   <h1 class="titulo">Passagens de ônibus por rota</h1>
   <ion-item color="transparent" class="slides" lines="none">
 
@@ -85,11 +85,11 @@
       <ion-slide (click)="alert()">
         <div class="slide1" ></div>
       </ion-slide>
-  
+
       <ion-slide (click)="alert()">
         <div class="slide2"></div>
       </ion-slide>
-  
+
       <ion-slide (click)="alert()">
         <div class="slide3"></div>
       </ion-slide>
@@ -97,5 +97,5 @@
 
   </ion-item>
 
-  
+
 </ion-content>
