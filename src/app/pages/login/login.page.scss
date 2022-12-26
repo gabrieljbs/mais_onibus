@@ -6,6 +6,8 @@ ion-content{
   .logo{
 
     margin: auto;
+    margin-top: 34px;
+    margin-bottom: 50px;
     width: 200px;
     height: 54px;
     background-image: url('/assets/logo.png');
@@ -20,7 +22,7 @@ ion-content{
     top: 277px;
 
     h1{
-      font-family: 'Inter';
+      font-family: 'Poppins';
       font-style: normal;
       font-weight: 700;
       font-size: 24px;
@@ -41,6 +43,11 @@ ion-content{
         line-height: 18px;
         color: #A9A9A9;
       }
+      ion-input{
+        
+        color: #A9A9A9;
+
+      }
     }
 
     .esqueceu-senha{
@@ -51,22 +58,41 @@ ion-content{
       line-height: 18px;
       text-align: end;
       color: #000000;
-      margin-left: 50%;
+      margin-left: 20%;
+      margin-top: 24px;
+      margin-bottom: 32px;
     }
 
     ion-button{
       --background: #50C2C9;
+      margin-bottom: 55px;
 
+      ion-label{
+  
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18px;
+        
+      }
     }
 
-    ion-label{
-
-      font-family: 'Poppins';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 12px;
-      line-height: 18px;
-      color: #A9A9A9;
+    .text{
+     margin-left: 5%;
+     margin-right: 5%;
+      label{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+        margin: auto; 
+        color: #A9A9A9;
+        label{
+          color:#50C2C9;
+        }
+      }
     }
 
   }

@@ -1,12 +1,19 @@
 ion-menu{
   --background: #fff;
-
+  
   ion-toolbar{
     --background: #348A8F;
   }
-
+  
   ion-content{
     --background: #50C2C9;
+
+    ion-item{
+      --border-color: #fff;
+      
+    }
+
+    
   }
 
   .icon-perfil{
