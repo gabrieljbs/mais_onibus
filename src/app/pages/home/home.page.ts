@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController, ToastController } from '@ionic/angular';
+import { format } from 'date-fns';
 import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-home',
@@ -10,6 +11,11 @@ import { UserService } from 'src/app/services/user.service';
   
 })
 export class HomePage implements OnInit {
+  modes = ['date', 'date-time', 'month', 'mont-year','time','time-date', 'year'];
+  selecteMode = 'date';
+  showPicker = false;
+  dateValue = format(new Date(), 'dd-MM-yyyy'); 
+  formattedString="";
   
   slideOpts = {
     slidesPerView: 1.5,
