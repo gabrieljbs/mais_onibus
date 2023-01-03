@@ -1,10 +1,10 @@
 <ion-content>
   <div class="form">
-    <ion-item lines="none">
+    <ion-item >
       <ion-label position="floating">Origem</ion-label>
       <ion-input placeholder="Enter text"></ion-input>
     </ion-item>
-    <ion-item lines="none"> 
+    <ion-item > 
       <ion-label position="floating">Destino</ion-label>
       <ion-input placeholder="Enter text"></ion-input>
     </ion-item>
@@ -12,20 +12,22 @@
     <ion-item (click)="showPicker = !showPicker"> 
       <ion-label>Date</ion-label>
       <ion-text slot="end"> 
-        {{ dateValue}}
+        {{formattedString}}
       </ion-text>
     </ion-item>
 
-    <ion-datetime *ngIf="showPicker" [value]="dateValue" presentation="date"></ion-datetime>
+    <ion-datetime *ngIf="showPicker"
+    #datetime 
+    [value]="dateValue"   
+    presentation="date" 
+    size="cover"
+    (ionChange)="dateChanged(datetime.value)"
+    showDefaultButtons="true"
+    >
+    
 
-    <ion-item (click)="showPicker = !showPicker"> 
-      <ion-label>Date</ion-label>
-      <ion-text slot="end"> 
-        {{ dateValue}}
-      </ion-text>
-    </ion-item>
+    </ion-datetime>
 
-    <ion-datetime *ngIf="showPicker" [value]="dateValue" presentation="date"></ion-datetime>
-      
+    
   </div>
 </ion-content>

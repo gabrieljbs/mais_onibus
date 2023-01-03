@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController, ToastController } from '@ionic/angular';
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-home',
@@ -14,7 +14,7 @@ export class HomePage implements OnInit {
   modes = ['date', 'date-time', 'month', 'mont-year','time','time-date', 'year'];
   selecteMode = 'date';
   showPicker = false;
-  dateValue = format(new Date(), 'dd-MM-yyyy'); 
+  dateValue = format(new Date(), 'yyyy-MM-dd')/* +'T09:00:00;000Z' */; 
   formattedString="";
   
   slideOpts = {
@@ -108,13 +108,29 @@ export class HomePage implements OnInit {
 
    origem: string;
    destino: string;
+   
   
 
   constructor(
     private alertController: AlertController,
     private router: Router,
     private UserS:UserService 
-  ) { }
+  ) 
+  { 
+   this.setToday(); 
+  }
+
+  setToday(){
+    this.formattedString =  format(parseISO(format(new Date(),'yyyy-MM-dd')/* +'T09:00:00.000Z' */),"d MMM, yyyy")
+  }
+
+  dateChanged(value){
+    
+    this.dateValue = value;
+    this.formattedString = format(parseISO(value),"d MMM, yyyy")
+    console.log(this.formattedString)
+    
+  }
 
   ngOnInit() {
     this.UserS
