@@ -1,10 +1,32 @@
 ion-content{
-    
+    ion-label{
+        --color:#A9A9A9;
+    }
   .form{
     position: absolute;
     width: 308px;
     height: 309px;
     left: 41px;
     top: 15px;
-  }
+
+    ion-datetime{
+        background: #fff;
+    }
+
+    ion-item{
+        width: 305px;
+        height: 54px;
+        
+
+        ion-button{
+            margin: auto;
+            --background-activated: #50C2C9;
+            --background: #fff;
+            
+            
+        }
+    
+    }
+} 
+
 }
