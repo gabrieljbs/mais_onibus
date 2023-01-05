@@ -37,6 +37,10 @@ const routes: Routes = [
     path: 'confirmacao',
     loadChildren: () => import('./confirmacao/confirmacao.module').then( m => m.ConfirmacaoPageModule)
   },
+  {
+    path: 'search',
+    loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
+  },
 
 
   
