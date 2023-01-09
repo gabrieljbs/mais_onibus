@@ -4,11 +4,9 @@ import { AlertController, LoadingController, ToastController } from '@ionic/angu
 import { format, parseISO } from 'date-fns';
 import { UserService } from 'src/app/services/user.service';
 @Component({
-  selector: 'app-home',
+  selector: 'app-search',
   templateUrl: './search.page.html',
   styleUrls: ['./search.page.scss'],
-
-  
 })
 export class SearchPage implements OnInit {
   modes = ['date', 'date-time', 'month', 'mont-year','time','time-date', 'year'];
@@ -17,25 +15,11 @@ export class SearchPage implements OnInit {
   dateValue = format(new Date(), 'yyyy-MM-dd')/* +'T09:00:00;000Z' */; 
   formattedString="";
   isModalOpen = false;
-  origem: string;
-  destino: string;
-   
 
-  setOpen(isOpen: boolean) {
-    this.isModalOpen = isOpen;
+  constructor() { 
+    this.setToday(); 
   }
-   
   
-
-  constructor(
-    private alertController: AlertController,
-    private router: Router,
-    private UserS:UserService 
-  ) 
-  { 
-   this.setToday(); 
-  }
-
   setToday(){
     this.formattedString =  format(parseISO(format(new Date(),'yyyy-MM-dd')/* +'T09:00:00.000Z' */),"d MMM, yyyy")
   }
@@ -50,34 +34,6 @@ export class SearchPage implements OnInit {
   }
 
   ngOnInit() {
-    this.UserS
   }
 
-  
-
-  pesquisar(origem: string,destino: string){
-    try{
-     
-      this.router.navigate(['/rotas'], {queryParams:{cidadeA: origem, cidadeB: destino}})
-      
-    }
-    catch(err){
-      console.log('Erro',err)
-    }
-    
-  }
-  async alert(){
-    const alert = await this.alertController.create({
-       header: 'Aviso',
-       subHeader: 'Menssagem do Sistema',
-       message: 'Função não implementada',
-       buttons: ['OK'],
-      
-         
-       
-       
-     });
-     
-     await alert.present();
-   }
 }
