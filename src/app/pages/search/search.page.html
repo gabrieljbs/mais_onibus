@@ -1,10 +1,10 @@
 <ion-content>
-  <ion-item id="open-modal">
-    <ion-icon icon="calendar-outline" slot="start" color="primary" ></ion-icon>
+  <ion-item>
+    <ion-icon icon="calendar-outline" slot="start" color="primary" id="open-modal"></ion-icon>
       <ion-label>Pick date</ion-label>
       <ion-text slot="end">{{formattedString}}</ion-text>
   </ion-item>
-  <ion-modal id="example-modal" #modal trigger="open-custom-dialog">
+  <ion-modal trigger="open-modal">
     <ng-template>
       <ion-content>
         <ion-datetime 
@@ -16,4 +16,5 @@
     </ng-template>
   </ion-modal>
 
+  
 </ion-content>

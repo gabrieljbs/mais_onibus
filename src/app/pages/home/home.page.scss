@@ -13,19 +13,24 @@ ion-content{
         background: #fff;
     }
 
-    ion-item{
-        width: 305px;
-        height: 54px;
-        
+    .open-modal{ 
+        padding: 18px;
+    }
 
-        ion-button{
-            margin: auto;
-            --background-activated: #50C2C9;
-            --background: #fff;
-            
-            
-        }
-    
+    ion-button{
+        margin-top: 30px;
+        margin-bottom: 30px;
+        --background: #50C2C9;
+    }
+
+    .bnt{
+        border: 1.5px solid #A9A9A9;
+        border-radius: 20px;
+        color: #000;
+        background: #fff;
+       .text{
+        margin: auto;
+       }
     }
 } 
 
