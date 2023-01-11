@@ -1,13 +1,15 @@
 ion-content{
+    overflow: scroll;
     ion-label{
         --color:#A9A9A9;
+        
     }
   .form{
-    position: absolute;
+    margin: auto;
+    position: relative;
     width: 308px;
     height: 309px;
-    left: 41px;
-    top: 15px;
+    
 
     ion-datetime{
         background: #fff;
@@ -33,5 +35,7 @@ ion-content{
        }
     }
 } 
-
+ion-card{
+   
+}
 }
