@@ -9,18 +9,18 @@
     <h1>Acesse <br>a sua conta</h1>
       <ion-item color="none" lines="none">
         <ion-label color="light">Email</ion-label>
-        <ion-input color="light" placeholder="Enter text"  ></ion-input>
+        <ion-input color="light" placeholder="Enter text" [(ngModel)]="user.email" ></ion-input>
       </ion-item>
 
       <ion-item color="none" lines="none">
         <ion-label color="light"  >Senha</ion-label>
-        <ion-input color="light" placeholder="Enter text" type="password"></ion-input>
+        <ion-input color="light" placeholder="Enter text" type="password" [(ngModel)]="user.password"></ion-input>
       </ion-item>
 
       <p class="esqueceu-senha" color="light" slot="end">Esqueceu sua senha?</p>
 
       <ion-button expand="full">
-        <ion-label color="light">Entrar</ion-label>
+        <ion-label color="light" (click)="entrar()">Entrar</ion-label>
       </ion-button>
 
       <div class="text">

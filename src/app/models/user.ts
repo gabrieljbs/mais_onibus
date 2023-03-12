@@ -1,4 +1,4 @@
-export default interface IUsuario{
+export default interface IUser {
     id: string;
     ativo: boolean;
     cpf:string;

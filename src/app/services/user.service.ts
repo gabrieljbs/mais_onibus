@@ -15,6 +15,7 @@ export class UserService {
   ) {}
 
   async register(registerUser: Register) {
+
     const res = await this.afa.createUserWithEmailAndPassword(registerUser.email, registerUser.password);
     delete registerUser.password;
     this.uid = (await (this.afa.currentUser)).uid;
