@@ -8,42 +8,42 @@
 
     <ion-item color="none" lines="none">
       <ion-label color="light">Nome</ion-label>
-      <ion-input color="light" placeholder="Enter text"  ></ion-input>
+      <ion-input color="light" placeholder="Enter text"  [(ngModel)] = "user.nome" ></ion-input>
     </ion-item>
 
     <ion-item color="none" lines="none">
       <ion-label color="light">Email</ion-label>
-      <ion-input color="light" placeholder="Enter text"  ></ion-input>
+      <ion-input color="light" placeholder="Enter text"  [(ngModel)] = "user.email" ></ion-input>
     </ion-item>
 
     <ion-item color="none" lines="none">
       <ion-label color="light">CPF</ion-label>
-      <ion-input color="light" placeholder="Enter text"  ></ion-input>
+      <ion-input color="light" placeholder="Enter text"  [(ngModel)] = "user.cpf" ></ion-input>
     </ion-item>
 
     <ion-item color="none" lines="none">
       <ion-label color="light">Telefone</ion-label>
-      <ion-input color="light" placeholder="Enter text"  ></ion-input>
+      <ion-input color="light" placeholder="Enter text"  [(ngModel)] = "user.telefone" ></ion-input>
     </ion-item>
 
     <ion-item color="none" lines="none">
       <ion-label color="light">Senha</ion-label>
-      <ion-input color="light" placeholder="Enter text"  type="password"></ion-input>
+      <ion-input color="light" placeholder="Enter text"  type="password"  [(ngModel)] = "user.password"></ion-input>
     </ion-item>
 
     <ion-item color="none" lines="none">
       <ion-label color="light">Confirma senha</ion-label>
-      <ion-input color="light" placeholder="Enter text" type="password" ></ion-input>
+      <ion-input color="light" placeholder="Enter text" type="password"  [(ngModel)] = "user.confPassword" ></ion-input>
     </ion-item>
 
     <ion-button expand="full">
-      <ion-label color="light">Cadastrar</ion-label>
+      <ion-label color="light" (click)="cadastrar()">Cadastrar</ion-label>
     </ion-button>
 
     <div class="text">
 
-      <label> Já possui uma conta?<label>Entrar</label></label>
-      
+      <label> Já possui uma conta?<label [routerLink]="['/login']">Entrar</label></label>
+
     </div>
   </div>
 

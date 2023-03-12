@@ -1,21 +1,21 @@
 ion-content{
-    
+
     ion-label{
         --color:#A9A9A9;
-        
+
     }
   .form{
     margin: auto;
     position: relative;
     width: 80vw;
     height: 309px;
-    
+
 
     ion-datetime{
         background: #fff;
     }
 
-    .open-modal{ 
+    .open-modal{
         padding: 18px;
     }
 
@@ -34,7 +34,7 @@ ion-content{
         margin: auto;
        }
     }
-} 
+}
 .list{
     width: 80vw;
     height: 80px;
@@ -59,3 +59,32 @@ ion-content{
 }
 
 }
+
+
+ion-modal#datetime {
+  --width: fit-content;
+  --min-width: 250px;
+  --height: fit-content;
+  --border-radius: 8px;
+  --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+}
+
+ion-modal#datetime h1 {
+  margin: 20px 20px 10px 20px;
+}
+
+ion-modal#datetime ion-icon {
+  margin-right: 6px;
+
+  width: 48px;
+  height: 48px;
+
+  padding: 4px 0;
+
+  color: #aaaaaa;
+}
+
+ion-modal#datetime .wrapper {
+  margin-bottom: 10px;
+}
+

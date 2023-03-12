@@ -1,99 +1,26 @@
-
-
-.main-content{
-    overflow: hidden;
+ion-modal#example-modal {
+  --width: fit-content;
+  --min-width: 250px;
+  --height: fit-content;
+  --border-radius: 6px;
+  --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
 }
 
-.ion-page{
-    margin-top: 0px;
-    height: 5vh;
-}
-.back{
-    overflow: scroll;
-    display: block;
-    background: #acc2f9;
-    height: 100vh;
-    width: 100vw;
-    margin: auto;
-
-   .form{
-    margin: auto;
-    width: 90vw;
-    height: 25vh;
-    margin-top: 5vh;
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 25px 0px;
-    overflow: hidden;
-
-    ion-button{
-        margin: auto;
-        color: black;
-        font-size: 26px;
-        --background: #FAFF00;
-        height: 87px;
-        width: 80vw;
-        margin-top: 2vh;
-        @media only screen and (max-height: 1000px) {
-            height: 10vh;
-            width: 50vw;
-            
-        }
-
-    }
-    
-    @media only screen and (max-height: 1000px) {
-        height: 45vh;
-        width: 60vw;
-        
-    }
-       ion-grid{
-            width: 100vw;
-        ion-col{
-            display: flex;
-            justify-content:center;
-            font-size: 26px;
-           
-            padding: 25px 20px;
-            ion-icon{
-                display: flex;
-                font-size: 46px;
-                margin: auto;
-            }
-        }
-        .text{
-            border: #000 2px solid;
-            border-radius: 10px;
-        }
-       
-       }
-        
-    }
-    .list{
-        display: flex;
-        margin: auto;
-        margin-top: 2vh;
-        background-color: #fff;
-        border-radius: 10px;
-        width: 90vw;
-        height: 180px;
-        padding: 1vh 1vw;
-        font-size: 26px;
-
-        img{
-            position: initial;
-            margin: auto;
-            background-size: cover;
-            width: 125px;
-            height: 125px;
-            border-radius: 75px;
-        
-        }        
-        .col-align{
-            text-align:end;
-         }
-
-        
-    }
+ion-modal#example-modal h1 {
+  margin: 20px 20px 10px 20px;
 }
 
+ion-modal#example-modal ion-icon {
+  margin-right: 6px;
+
+  width: 48px;
+  height: 48px;
+
+  padding: 4px 0;
+
+  color: #aaaaaa;
+}
+
+ion-modal#example-modal .wrapper {
+  margin-bottom: 10px;
+}
