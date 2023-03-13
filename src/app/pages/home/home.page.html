@@ -12,12 +12,12 @@
 
 
     <ion-item id="open-custom-dialog" class="open-modal">
-      <ion-label>Date</ion-label>
+      <ion-label>Data de Ida</ion-label>
       <ion-text slot="end">{{formattedString}}</ion-text>
     </ion-item>
 
-    <ion-item id="open-custom-dialog" class="open-modal">
-      <ion-label>Date</ion-label>
+    <ion-item id="open-custom-dialog2" class="open-modal">
+      <ion-label>Data de volta</ion-label>
       <ion-text slot="end">{{formattedString2}}</ion-text>
     </ion-item>
 
@@ -25,43 +25,42 @@
   <ion-modal id="datetime" #modal trigger="open-custom-dialog">
     <ng-template>
       <ion-datetime
+      #datetime
       [value]="dateValue" size="cover"
       (ionChange)="dateChanged(datetime.value)"
       showDefaultButtons="">
+      </ion-datetime>
+    </ng-template>
+  </ion-modal>
 
+  <ion-modal id="datetime" #modal trigger="open-custom-dialog2">
+    <ng-template>
+      <ion-datetime
+      #datetime2
+      [value]="dateValue2" size="cover"
+      (ionChange)="dateChanged2(datetime2.value)"
+      showDefaultButtons="">
       </ion-datetime>
     </ng-template>
   </ion-modal>
 
       <ion-button expand="full">Pesquisar</ion-button>
 
-<!--
-      <ion-item class="bnt" lines="none">
-        <label size="cover" class="text">
-          Estadual
-        </label>
+      <h3>Promoções</h3>
 
-        <label size="cover" class="text">
-          Municipal
-        </label>
-      </ion-item>
- -->
+      <ion-card *ngFor="let i of [1, 2, 3, 4, 5]">
+        <img alt="Silhouette of mountains" src="assets/saopaulo.jpg" />
+        <ion-card-header>
+          <ion-card-title>São Paulo</ion-card-title>
+          <ion-card-subtitle>Preço: R$ 300,00</ion-card-subtitle>
+        </ion-card-header>
+      
+        <ion-card-content>
+          Here's a small text description for the card content. Nothing more, nothing less.
+        </ion-card-content>
+      </ion-card>
 
-  <!-- <ion-content class="DateTime">
-          <ion-datetime
-            #datetime
-            [value]="dateValue" size="cover"
-            (ionChange)="dateChanged(datetime.value)"
-            showDefaultButtons=""
-            ></ion-datetime>
-          </ion-content> -->
-
-      <div class="list">
-
-        <ion-img style="background-image: url(assets/saopaulo.jpg);"></ion-img>
-        <ion-label slot="end">sadiufgdsafsas</ion-label>
-
-      </div>
+     
 
     </div>
 

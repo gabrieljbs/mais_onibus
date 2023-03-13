@@ -1,20 +1,67 @@
 <ion-content>
-  <ion-item>
-    <ion-icon icon="calendar-outline" slot="start" color="primary" id="open-modal"></ion-icon>
-      <ion-label>Pick date</ion-label>
+  <div class="form">
+    <ion-item >
+      <ion-label position="floating">Origem</ion-label>
+      <ion-input placeholder="Enter text"></ion-input>
+    </ion-item>
+    <ion-item >
+      <ion-label position="floating">Destino</ion-label>
+      <ion-input placeholder="Enter text"></ion-input>
+    </ion-item>
+
+
+
+    <ion-item id="open-custom-dialog" class="open-modal">
+      <ion-label>Data de Ida</ion-label>
       <ion-text slot="end">{{formattedString}}</ion-text>
-  </ion-item>
-  <ion-modal trigger="open-modal">
+    </ion-item>
+
+    <ion-item id="open-custom-dialog2" class="open-modal">
+      <ion-label>Data de volta</ion-label>
+      <ion-text slot="end">{{formattedString2}}</ion-text>
+    </ion-item>
+
+
+  <ion-modal id="datetime" #modal trigger="open-custom-dialog">
     <ng-template>
-      <ion-content>
-        <ion-datetime 
-          #datetime
-          [value]="dateValue" size="cover"
-          (ionChange)="dateChanged(datetime.value)"
-          showDefaultButtons=""></ion-datetime>
-      </ion-content>
+      <ion-datetime
+      #datetime
+      [value]="dateValue" size="cover"
+      (ionChange)="dateChanged(datetime.value)"
+      showDefaultButtons="">
+      </ion-datetime>
     </ng-template>
   </ion-modal>
 
-  
+  <ion-modal id="datetime" #modal trigger="open-custom-dialog2">
+    <ng-template>
+      <ion-datetime
+      #datetime2
+      [value]="dateValue2" size="cover"
+      (ionChange)="dateChanged2(datetime2.value)"
+      showDefaultButtons="">
+      </ion-datetime>
+    </ng-template>
+  </ion-modal>
+
+      <ion-button expand="full">Pesquisar</ion-button>
+
+      <h3>Promoções</h3>
+
+      <ion-card *ngFor="let i of [1, 2, 3, 4, 5]">
+        <img alt="Silhouette of mountains" src="assets/saopaulo.jpg" />
+        <ion-card-header>
+          <ion-card-title>São Paulo</ion-card-title>
+          <ion-card-subtitle>Preço: R$ 300,00</ion-card-subtitle>
+        </ion-card-header>
+      
+        <ion-card-content>
+          Here's a small text description for the card content. Nothing more, nothing less.
+        </ion-card-content>
+      </ion-card>
+
+     
+
+    </div>
+
 </ion-content>

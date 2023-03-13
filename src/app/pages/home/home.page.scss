@@ -1,5 +1,5 @@
 ion-content{
-
+  overflow: hidden;
     ion-label{
         --color:#A9A9A9;
 
@@ -88,3 +88,6 @@ ion-modal#datetime .wrapper {
   margin-bottom: 10px;
 }
 
+h3{
+  margin: auto;
+}

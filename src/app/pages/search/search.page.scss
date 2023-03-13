@@ -1,26 +1,93 @@
-ion-modal#example-modal {
-    --width: fit-content;
-    --min-width: 250px;
-    --height: fit-content;
-    --border-radius: 6px;
-    --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
-  }
-  
-  ion-modal#example-modal h1 {
-    margin: 20px 20px 10px 20px;
-  }
-  
-  ion-modal#example-modal ion-icon {
-    margin-right: 6px;
-  
-    width: 48px;
-    height: 48px;
-  
-    padding: 4px 0;
-  
-    color: #aaaaaa;
-  }
-  
-  ion-modal#example-modal .wrapper {
-    margin-bottom: 10px;
-  }
+ion-content{
+  overflow: hidden;
+    ion-label{
+        --color:#A9A9A9;
+
+    }
+  .form{
+    margin: auto;
+    position: relative;
+    width: 80vw;
+    height: 309px;
+
+
+    ion-datetime{
+        background: #fff;
+    }
+
+    .open-modal{
+        padding: 18px;
+    }
+
+    ion-button{
+        margin-top: 30px;
+        margin-bottom: 30px;
+        --background: #50C2C9;
+    }
+
+    .bnt{
+        border: 1.5px solid #A9A9A9;
+        border-radius: 20px;
+        color: #000;
+        background: #fff;
+       .text{
+        margin: auto;
+       }
+    }
+}
+.list{
+    width: 80vw;
+    height: 80px;
+    margin-top: 25px;
+    border: 1px solid #A9A9A9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    overflow: hidden;
+
+    ion-img{
+        margin: auto;
+        margin-left: 0px;
+        width: 50vw;
+        height: 80px;
+        background-size: cover;
+        border-radius: 10px 0px 0px 10px;
+    }
+    ion-label{
+        margin: auto;
+    }
+
+}
+
+}
+
+
+ion-modal#datetime {
+  --width: fit-content;
+  --min-width: 250px;
+  --height: fit-content;
+  --border-radius: 8px;
+  --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+}
+
+ion-modal#datetime h1 {
+  margin: 20px 20px 10px 20px;
+}
+
+ion-modal#datetime ion-icon {
+  margin-right: 6px;
+
+  width: 48px;
+  height: 48px;
+
+  padding: 4px 0;
+
+  color: #aaaaaa;
+}
+
+ion-modal#datetime .wrapper {
+  margin-bottom: 10px;
+}
+
+h3{
+  margin: auto;
+}

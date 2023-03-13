@@ -7,15 +7,15 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { NgStyle } from '@angular/common';
 import { UserService } from 'src/app/services/user.service';
+import {LocationStrategy} from '@angular/common';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-
 })
 export class HeaderComponent implements OnInit {
-
+  showButtons = true;
   usuario: IUsuario
   login: boolean ;
   email:string;
@@ -24,13 +24,28 @@ export class HeaderComponent implements OnInit {
 
 
   constructor(
+    private url:LocationStrategy,
     private UserS: UserService,
     private router: Router,
     private route: ActivatedRoute,
     private firestore:AngularFirestore,
     private alertController: AlertController,
+    
 
-  ) { }
+  ) {
+    console.log(this.showButtons)
+    if (this.url.path() === '/login' || this.url.path() === '/cadastro') {
+      
+      this.showButtons = false;
+    }else{
+      this.showButtons = true;
+    } 
+    console.log(this.showButtons)
+    console.log(this.url.path())
+    
+    
+    
+}
 
   ngOnInit() {
 

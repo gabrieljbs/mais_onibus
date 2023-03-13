@@ -14,7 +14,7 @@ import { Register } from '../../models/register';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
+  
   public user: Register;
 
   constructor(
@@ -27,7 +27,7 @@ export class LoginPage implements OnInit {
     private loginServices: LoginService
 
   ) {
-
+    
     this.user = {
       email: '',
       password: '',
@@ -37,6 +37,7 @@ export class LoginPage implements OnInit {
       dataNasc: '',
       telefone: '',
     };
+    
    }
 
   ngOnInit() {
