@@ -48,19 +48,22 @@
 
       <h3>Promoções</h3>
 
-      <ion-card *ngFor="let promocoes of promocao | async">
-        <img alt="Silhouette of mountains" src="{{promocoes.img}}" />
-        <ion-card-header>
-          <ion-card-title>{{promocoes.cidade}}</ion-card-title>
-          <ion-card-subtitle>Preço: R$ {{promocoes.preco}}</ion-card-subtitle>
-        </ion-card-header>
-      
-        <ion-card-content>
-          {{promocoes.descricao}}
-        </ion-card-content>
-      </ion-card>
+      <div style="padding-bottom: 55px;">
 
-     
+        <ion-card *ngFor="let promocoes of promocao | async">
+          <img alt="Silhouette of mountains" src="{{promocoes.img}}" />
+          <ion-card-header>
+            <ion-card-title>{{promocoes.cidade}}</ion-card-title>
+            <ion-card-subtitle>Preço: R$ {{promocoes.preco}}</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            {{promocoes.descricao}}
+          </ion-card-content>
+        </ion-card>
+      </div>
+
+
 
     </div>
 
