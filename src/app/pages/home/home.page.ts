@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { AlertController, IonDatetime, LoadingController, ToastController } from '@ionic/angular';
 import { format, parseISO } from 'date-fns';
 import { UserService } from 'src/app/services/user.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import  IPromocao  from 'src/app/models/promocao';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +25,7 @@ export class HomePage implements OnInit {
   isModalOpen = false;
   origem: string;
   destino: string;
-
+  promocao: Observable<Array<IPromocao>> ;
 
 
   setOpen(isOpen: boolean) {
@@ -34,7 +37,8 @@ export class HomePage implements OnInit {
   constructor(
     private alertController: AlertController,
     private router: Router,
-    private UserS:UserService
+    private UserS:UserService,
+    private firestore: AngularFirestore,
   )
   {
    this.setToday();
@@ -62,14 +66,16 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.UserS
+
+    this.promocao = this.firestore.collection<IPromocao>('promocao').valueChanges()
   }
 
+  
 
-
-  pesquisar(origem: string,destino: string){
+  pesquisar(origem: string,destino: string, formattedString, formattedString2){
     try{
 
-      this.router.navigate(['/rotas'], {queryParams:{cidadeA: origem, cidadeB: destino}})
+      this.router.navigate(['/search'], {queryParams:{cidadeA: origem, cidadeB: destino, dataI:formattedString , dataV:formattedString2 }})
 
     }
     catch(err){
@@ -77,6 +83,8 @@ export class HomePage implements OnInit {
     }
 
   }
+
+  confirma(){}
   async alert(){
     const alert = await this.alertController.create({
        header: 'Aviso',

@@ -46,17 +46,24 @@
 
       <ion-button expand="full">Pesquisar</ion-button>
 
-      <h3>Promoções</h3>
+      <h3>Resultados</h3>
 
-      <ion-card *ngFor="let i of [1, 2, 3, 4, 5]">
-        <img alt="Silhouette of mountains" src="assets/saopaulo.jpg" />
+      <ion-card *ngFor="let rota of rotas | async" (click)="view()">
         <ion-card-header>
-          <ion-card-title>São Paulo</ion-card-title>
-          <ion-card-subtitle>Preço: R$ 300,00</ion-card-subtitle>
+          <ion-card-title>Viagem</ion-card-title>
+          <ion-card-subtitle>Belém-PA<ion-icon name="arrow-forward-outline"></ion-icon>São Paulo-SP </ion-card-subtitle>
         </ion-card-header>
       
         <ion-card-content>
-          Here's a small text description for the card content. Nothing more, nothing less.
+          <ion-item lines="none">
+            <ion-label color="dark" >Ida 22/12/23 13:00am</ion-label><br>
+          </ion-item>
+          <ion-item l>
+            <ion-label color="dark" >Volta 22/12/23 13:00am</ion-label><br>
+          </ion-item >
+          <ion-item lines="none">
+            <ion-label color="dark" slot="end"><h1>R$ 300,00</h1></ion-label><br>
+          </ion-item>
         </ion-card-content>
       </ion-card>
 

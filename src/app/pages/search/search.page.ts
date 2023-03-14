@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute  } from '@angular/router';
 import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { format, parseISO } from 'date-fns';
 import { UserService } from 'src/app/services/user.service';
+import { Search } from '../../models/search';
+import IRota from 'src/app/models/rota.model';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.page.html',
@@ -19,10 +24,8 @@ export class SearchPage implements OnInit {
   formattedString2='';
   
   isModalOpen = false;
-  origem: string;
-  destino: string;
 
-
+  rotas: Observable<Array<IRota>> ;
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
@@ -32,7 +35,9 @@ export class SearchPage implements OnInit {
 
   constructor(
     private alertController: AlertController,
+    private route: ActivatedRoute,
     private router: Router,
+    private firestore: AngularFirestore,
     private UserS:UserService
   )
   {
@@ -61,30 +66,22 @@ export class SearchPage implements OnInit {
 
   ngOnInit() {
     this.UserS
+
+    this.route.queryParamMap
+      .subscribe((params)=>{
+        let cidadeA = params.get("cidadeA"); 
+        let cidadeB = params.get("cidadeB");
+        let dataI = params.get("dataI"); 
+        let dataV = params.get("dataV");
+        /* this.buscar(cidadeA,cidadeB); */
+        console.log(cidadeA,cidadeB,dataI,dataV);
+    });
+
+    this.rotas = this.firestore.collection<IRota>('rota', ref => ref.where('destino', '==', "Belém-PA")).valueChanges()
   }
 
-
-
-  pesquisar(origem: string,destino: string){
-    try{
-
-      this.router.navigate(['/rotas'], {queryParams:{cidadeA: origem, cidadeB: destino}})
-
-    }
-    catch(err){
-      console.log('Erro',err);
-    }
+  view(){}
+  
 
   }
-  async alert(){
-    const alert = await this.alertController.create({
-       header: 'Aviso',
-       subHeader: 'Menssagem do Sistema',
-       message: 'Função não implementada',
-       buttons: ['OK'],
-
-     });
-
-     await alert.present();
-   }
-}
+  
