@@ -38,7 +38,8 @@ export class SearchPage implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private firestore: AngularFirestore,
-    private UserS:UserService
+    private UserS:UserService,
+    
   )
   {
    this.setToday();
@@ -75,12 +76,15 @@ export class SearchPage implements OnInit {
         let dataV = params.get("dataV");
         /* this.buscar(cidadeA,cidadeB); */
         console.log(cidadeA,cidadeB,dataI,dataV);
+        
+
     });
 
-    this.rotas = this.firestore.collection<IRota>('rota', ref => ref.where('destino', '==', "Belém-PA")).valueChanges()
+    this.rotas = this.firestore.collection<IRota>('viagem').valueChanges()
+
   }
 
-  view(){}
+  
   
 
   }

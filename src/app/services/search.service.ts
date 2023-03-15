@@ -38,4 +38,8 @@ buscar(search:Search){
 
 }
 
+ler(){
+  console.log("Origem: "+" Destino: "+" Data de Ida: "+" Data de Volta: "+"")
+}
+
 }

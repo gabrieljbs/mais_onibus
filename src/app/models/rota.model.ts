@@ -9,7 +9,8 @@ export default interface IRota{
     origem:string;
     placa: string;
     img: string;
-    rota:string;
+    dataI:string;
+    dataV:string;
     preco: number;
     qnt_passageiro:number;
     status:string;

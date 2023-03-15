@@ -5,6 +5,7 @@ import { format, parseISO } from 'date-fns';
 import { UserService } from 'src/app/services/user.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import  IPromocao  from 'src/app/models/promocao';
+import  IRota  from 'src/app/models/rota.model';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -26,6 +27,7 @@ export class HomePage implements OnInit {
   origem: string;
   destino: string;
   promocao: Observable<Array<IPromocao>> ;
+  rota: Observable<Array<IRota>> ;
 
 
   setOpen(isOpen: boolean) {
@@ -66,8 +68,14 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.UserS
-
+    
     this.promocao = this.firestore.collection<IPromocao>('promocao').valueChanges()
+
+    this.rota = this.firestore.collection<IRota>('viagem').valueChanges();
+    this.rota.subscribe(data => {
+      this.origem = data[0].origem;
+      this.destino = data[0].destino;
+    });
   }
 
   

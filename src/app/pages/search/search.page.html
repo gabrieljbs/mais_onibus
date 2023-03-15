@@ -47,25 +47,27 @@
       <ion-button expand="full">Pesquisar</ion-button>
 
       <h3>Resultados</h3>
-
-      <ion-card *ngFor="let rota of rotas | async" (click)="view()">
+    <div style="padding-bottom: 55px;">
+      
+      <ion-card *ngFor="let rota of rotas | async">
         <ion-card-header>
           <ion-card-title>Viagem</ion-card-title>
-          <ion-card-subtitle>Belém-PA<ion-icon name="arrow-forward-outline"></ion-icon>São Paulo-SP </ion-card-subtitle>
+          <ion-card-subtitle>{{rota.origem}}<ion-icon name="arrow-forward-outline"></ion-icon>{{rota.destino}} </ion-card-subtitle>
         </ion-card-header>
       
         <ion-card-content>
           <ion-item lines="none">
-            <ion-label color="dark" >Ida 22/12/23 13:00am</ion-label><br>
+            <ion-label color="dark" >{{rota.dataI}}</ion-label><br>
           </ion-item>
           <ion-item l>
-            <ion-label color="dark" >Volta 22/12/23 13:00am</ion-label><br>
+            <ion-label color="dark" >{{rota.dataV}}</ion-label><br>
           </ion-item >
           <ion-item lines="none">
-            <ion-label color="dark" slot="end"><h1>R$ 300,00</h1></ion-label><br>
+            <ion-label color="dark" slot="end"><h1>R$ {{rota.preco}}</h1></ion-label><br>
           </ion-item>
         </ion-card-content>
       </ion-card>
+    </div>
 
      
 
