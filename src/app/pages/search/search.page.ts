@@ -20,8 +20,10 @@ export class SearchPage implements OnInit {
   showPicker2 = false;
   dateValue = format(new Date(), 'yyyy-MM-dd')/* +'T09:00:00;000Z' */;
   dateValue2 = format(new Date(), 'yyyy-MM-dd')/* +'T09:00:00;000Z' */;
-  formattedString='';
-  formattedString2='';
+  formattedString: string;
+  formattedString2: string;
+  origem: string;
+  destino: string;
   
   isModalOpen = false;
 
@@ -70,12 +72,12 @@ export class SearchPage implements OnInit {
 
     this.route.queryParamMap
       .subscribe((params)=>{
-        let cidadeA = params.get("cidadeA"); 
-        let cidadeB = params.get("cidadeB");
-        let dataI = params.get("dataI"); 
-        let dataV = params.get("dataV");
-        /* this.buscar(cidadeA,cidadeB); */
-        console.log(cidadeA,cidadeB,dataI,dataV);
+        this.origem = params.get("origem"); 
+        this.destino = params.get("destino");
+        console.log(this.formattedString = params.get("dataI")); 
+        console.log(this.formattedString2 = params.get("dataV"));
+        
+        console.log(this.origem,this.destino);
         
 
     });
