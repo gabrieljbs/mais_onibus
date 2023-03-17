@@ -1,9 +1,11 @@
 <ion-content>
   <div class="form">
-    <ion-item >
-      
-      <ion-searchbar [(ngModel)]="origem" autocomplete="on" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Origem"></ion-searchbar>
-    </ion-item>
+    <ion-searchbar [(ngModel)]="origem" (ionChange)="digitando($event)" autocomplete="on" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Origem">
+      <ion-item *ngFor="let sugestao of rotas"[value]="sugestao" >
+        {{ sugestao.origem }}
+      </ion-item>
+    </ion-searchbar>
+    
     <ion-item >
       
       <ion-searchbar [(ngModel)]="destino" autocomplete="on" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Destino" ></ion-searchbar>

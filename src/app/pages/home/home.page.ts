@@ -72,14 +72,31 @@ export class HomePage implements OnInit {
     this.promocao = this.firestore.collection<IPromocao>('promocao').valueChanges()
 
     this.rota = this.firestore.collection<IRota>('viagem').valueChanges();
-    this.rota.subscribe(data => {
-      this.origem = data[0].origem;
-      this.destino = data[0].destino;
-    });
+    
+  }
+  digitando(sugestao:any){
+    this.origem = sugestao.origem;
+    this.destino = sugestao.destino;
   }
 
-  
+ 
+  /* digitando(valor:string){
+    this.origem = valor
+    this.rota.subscribe(data => {
+      // Filtrar a lista de sugestões com base no texto digitado pelo usuário
+      const sugestoes = data.filter(item => item.origem.toLowerCase().includes(valor.toLowerCase()));
+      if (sugestoes.length > 0) {
+        // Definir a primeira sugestão como valor da barra de pesquisa
+        this.origem = sugestoes[0].origem;
+        this.destino = sugestoes[0].destino;
+      } else {
+        // Se não houver sugestões, limpar os campos de pesquisa
+        this.destino = '';
+      }
+    });
+  } */
 
+  
   pesquisar(origem: string,destino: string, formattedString, formattedString2){
     try{
 
