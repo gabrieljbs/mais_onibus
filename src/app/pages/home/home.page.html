@@ -1,27 +1,18 @@
 <ion-content>
   <div class="form">
   <div>
+    
     <ion-item >
-      <ion-searchbar [(ngModel)]="origem" (ionChange)="digitando(origem, this.destino)" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Origem" ></ion-searchbar>
-      <ion-popover [trigger]="origem" >
-        <ion-list>
-          <ion-item *ngIf="sugestoes.length > 0" (ionSelect)="origem = sugestoes[0].origem">
-            <ion-label (click)="this.origem = sugestoes[0].origem">{{ sugestoes[0].origem }}</ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-popover>
+      <ion-searchbar [(ngModel)]="origem" (ionChange)="digitando(origem, this.destino)" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Destino" ></ion-searchbar>
     </ion-item>
+    <ion-list>
+      <ion-item *ngIf="sugestoes.length > 0" >
+        <ion-label (click)="this.origem = sugestoes[0].origem"> {{ sugestoes[0].origem }}</ion-label>
+      </ion-item>
+    </ion-list>
+    
 
-   <!--  <ion-item >
-      <ion-searchbar [(ngModel)]="origem" (ionChange)="digitando(origem, this.destino)" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Origem" ></ion-searchbar>
-      <ion-popover [trigger]="origem" >
-        <ion-list>
-          <ion-item *ngIf="sugestoes.length > 0" (ionSelect)="origem = sugestoes[0].origem">
-            <ion-label (click)="this.origem = sugestoes[0].origem">{{ sugestoes[0].origem }}</ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-popover>
-    </ion-item> -->
+  
 
     <ion-item >
       <ion-searchbar [(ngModel)]="destino" (ionChange)="digitando(this.origem, destino)" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Destino" ></ion-searchbar>
