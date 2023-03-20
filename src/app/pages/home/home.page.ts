@@ -22,12 +22,13 @@ export class HomePage implements OnInit {
   dateValue2 = format(new Date(), 'yyyy-MM-dd')/* +'T09:00:00;000Z' */;
   formattedString='';
   formattedString2='';
-  
+
   isModalOpen = false;
   origem: string;
   destino: string;
   promocao: Observable<Array<IPromocao>> ;
   rota: Observable<Array<IRota>> ;
+  sugestoes: IRota[] = [];
 
 
   setOpen(isOpen: boolean) {
@@ -42,9 +43,7 @@ export class HomePage implements OnInit {
     private UserS:UserService,
     private firestore: AngularFirestore,
   )
-  {
-   this.setToday();
-  }
+  {this.setToday()}
 
   setToday(){
     this.formattedString = format(parseISO(format(new Date(),'yyyy-MM-dd')/* +'T09:00:00.000Z' */),'d MMM, yyyy');
@@ -63,44 +62,31 @@ export class HomePage implements OnInit {
     this.formattedString2 = format(parseISO(value2),'d MMM, yyyy');
     this.showPicker2 = false;
     console.log(this.formattedString2);
-    
+
   }
 
   ngOnInit() {
-    this.UserS
-    
-    this.promocao = this.firestore.collection<IPromocao>('promocao').valueChanges()
+
+
+    this.promocao = this.firestore.collection<IPromocao>('promocao').valueChanges();
 
     this.rota = this.firestore.collection<IRota>('viagem').valueChanges();
-    
-  }
-  digitando(sugestao:any){
-    this.origem = sugestao.origem;
-    this.destino = sugestao.destino;
+
   }
 
- 
-  /* digitando(valor:string){
-    this.origem = valor
+  digitando(origem: any, destino: any){
     this.rota.subscribe(data => {
-      // Filtrar a lista de sugestões com base no texto digitado pelo usuário
-      const sugestoes = data.filter(item => item.origem.toLowerCase().includes(valor.toLowerCase()));
-      if (sugestoes.length > 0) {
-        // Definir a primeira sugestão como valor da barra de pesquisa
-        this.origem = sugestoes[0].origem;
-        this.destino = sugestoes[0].destino;
-      } else {
-        // Se não houver sugestões, limpar os campos de pesquisa
-        this.destino = '';
-      }
-    });
-  } */
+      this.sugestoes = data.filter(item => item.origem.toLowerCase().includes(origem.toLowerCase()));
+      this.sugestoes = data.filter(item => item.destino.toLowerCase().includes(destino.toLowerCase()));
 
-  
+    });
+  }
+
+
   pesquisar(origem: string,destino: string, formattedString, formattedString2){
     try{
 
-      this.router.navigate(['/search'], {queryParams:{cidadeA: origem, cidadeB: destino, dataI:formattedString , dataV:formattedString2 }})
+      this.router.navigate(['/search'], {queryParams:{cidadeA: origem, cidadeB: destino, dataI:formattedString , dataV:formattedString2 }});
 
     }
     catch(err){
