@@ -1,2 +1,21 @@
 
-<H1>Gabriel santos</H1>
+<div style='margin: auto; width: 50vw; height: 50vh;'>
+    
+        
+    <ion-item>
+        <ion-label>Nome:{{jogador.nome}}</ion-label>
+        <ion-label>Hab:{{jogador.hab}}</ion-label>
+        <ion-label>Vida:{{jogador.stamina}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Nome:{{adversario.nome}}</ion-label>
+        <ion-label>Hab:{{adversario.hab}}</ion-label>
+        <ion-label>Vida:{{adversario.stamina}}</ion-label>
+    </ion-item>
+
+
+<ion-button (click)='jogar()'>Combate</ion-button>
+</div>
+
+
