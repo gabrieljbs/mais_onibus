@@ -83,10 +83,10 @@ export class HomePage implements OnInit {
   }
 
 
-  pesquisar(origem: string,destino: string, formattedString, formattedString2){
+  pesquisar(origem, destino, formattedString, formattedString2){
     try{
 
-      this.router.navigate(['/search'], {queryParams:{cidadeA: origem, cidadeB: destino, dataI:formattedString , dataV:formattedString2 }});
+      this.router.navigate(['/search'], {queryParams:{cidadeA:origem, cidadeB:destino, dataI:formattedString , dataV:formattedString2 }});
 
     }
     catch(err){

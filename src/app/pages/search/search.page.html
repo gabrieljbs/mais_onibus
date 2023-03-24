@@ -1,10 +1,10 @@
 <ion-content>
   <div class="form">
     <ion-item >
-      <ion-searchbar [(ngModel)]="origem" autocomplete="on" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Origem"></ion-searchbar>
+      <ion-searchbar [(ngModel)]="pesquisaOrigem" autocomplete="on" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Origem"></ion-searchbar>
     </ion-item>
     <ion-item >
-      <ion-searchbar [(ngModel)]="destino" autocomplete="on" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Destino" ></ion-searchbar>
+      <ion-searchbar [(ngModel)]="pesquisaDestino" autocomplete="on" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Destino" ></ion-searchbar>
     </ion-item>
 
 
@@ -43,7 +43,7 @@
     </ng-template>
   </ion-modal>
 
-      <ion-button expand="full">Pesquisar</ion-button>
+      <ion-button expand="full" (click)="pesquisar()">Pesquisar</ion-button>
 
       <h3>Resultados</h3>
     <div style="padding-bottom: 55px;">

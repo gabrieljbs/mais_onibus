@@ -24,6 +24,10 @@ export class SearchPage implements OnInit {
   formattedString2: string;
   origem: string;
   destino: string;
+  cod: String ='';
+  pesquisaOrigem = '';
+  pesquisaDestino ='';
+  
   
   isModalOpen = false;
 
@@ -72,8 +76,8 @@ export class SearchPage implements OnInit {
 
     this.route.queryParamMap
       .subscribe((params)=>{
-        this.origem = params.get("origem"); 
-        this.destino = params.get("destino");
+        this.origem = params.get("cidadeA"); 
+        this.destino = params.get("cidadeB");
         console.log(this.formattedString = params.get("dataI")); 
         console.log(this.formattedString2 = params.get("dataV"));
         
@@ -84,6 +88,45 @@ export class SearchPage implements OnInit {
 
     this.rotas = this.firestore.collection<IRota>('viagem').valueChanges()
 
+  }
+
+  buscar(cidadeA,cidadeB){
+    this.pesquisaOrigem = cidadeA;
+    this.pesquisaDestino = cidadeB;
+
+    if (cidadeA == null ) {
+      
+      this.rotas = this.firestore.collection<IRota>('viagem', ref => ref
+      .where('destino', '==', cidadeB)).valueChanges()
+      
+    }else if (cidadeB == null ) {
+      this.rotas = this.firestore.collection<IRota>('viagem', ref => ref
+      .where('origem', '==', cidadeA)).valueChanges()
+
+    }else{
+      this.rotas = this.firestore.collection<IRota>('viagem', ref => ref
+      .where('origem', '==', cidadeA)
+      .where('destino', '==', cidadeB)).valueChanges()
+    }
+   
+  }
+  pesquisar(){
+    
+    if (this.pesquisaOrigem.length < 1 ) {
+      
+      this.rotas = this.firestore.collection<IRota>('viagem', ref => ref
+      .where('destino', '==', this.pesquisaDestino)).valueChanges()
+      
+    }else if (this.pesquisaDestino.length < 1 ) {
+      this.rotas = this.firestore.collection<IRota>('viagem', ref => ref
+      .where('origem', '==', this.pesquisaOrigem)).valueChanges()
+
+    }else{
+      this.rotas = this.firestore.collection<IRota>('viagem', ref => ref
+      .where('origem', '==', this.pesquisaOrigem)
+      .where('destino', '==', this.pesquisaDestino)).valueChanges()
+    }
+   
   }
 
   
