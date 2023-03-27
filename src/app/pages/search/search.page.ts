@@ -27,8 +27,9 @@ export class SearchPage implements OnInit {
   cod: String ='';
   pesquisaOrigem = '';
   pesquisaDestino ='';
-  
-  
+  rota: Observable<Array<IRota>> ;
+  sugestoes: IRota[] = [];
+
   isModalOpen = false;
 
   rotas: Observable<Array<IRota>> ;
@@ -45,7 +46,7 @@ export class SearchPage implements OnInit {
     private router: Router,
     private firestore: AngularFirestore,
     private UserS:UserService,
-    
+
   )
   {
    this.setToday();
@@ -68,25 +69,24 @@ export class SearchPage implements OnInit {
     this.formattedString2 = format(parseISO(value2),'d MMM, yyyy');
     this.showPicker2 = false;
     console.log(this.formattedString2);
-    
+
   }
 
   ngOnInit() {
-    this.UserS
 
     this.route.queryParamMap
       .subscribe((params)=>{
-        this.origem = params.get("cidadeA"); 
+        this.origem = params.get("cidadeA");
         this.destino = params.get("cidadeB");
-        console.log(this.formattedString = params.get("dataI")); 
+        console.log(this.formattedString = params.get("dataI"));
         console.log(this.formattedString2 = params.get("dataV"));
-        
+
         console.log(this.origem,this.destino);
-        
+
 
     });
 
-    this.rotas = this.firestore.collection<IRota>('viagem').valueChanges()
+    this.rotas = this.firestore.collection<IRota>('viagem').valueChanges();
 
   }
 
@@ -95,42 +95,50 @@ export class SearchPage implements OnInit {
     this.pesquisaDestino = cidadeB;
 
     if (cidadeA == null ) {
-      
+
       this.rotas = this.firestore.collection<IRota>('viagem', ref => ref
-      .where('destino', '==', cidadeB)).valueChanges()
-      
+      .where('destino', '==', cidadeB)).valueChanges();
+
     }else if (cidadeB == null ) {
       this.rotas = this.firestore.collection<IRota>('viagem', ref => ref
-      .where('origem', '==', cidadeA)).valueChanges()
+      .where('origem', '==', cidadeA)).valueChanges();
 
     }else{
       this.rotas = this.firestore.collection<IRota>('viagem', ref => ref
       .where('origem', '==', cidadeA)
-      .where('destino', '==', cidadeB)).valueChanges()
+      .where('destino', '==', cidadeB)).valueChanges();
     }
-   
+
   }
   pesquisar(){
-    
+
     if (this.pesquisaOrigem.length < 1 ) {
-      
+
       this.rotas = this.firestore.collection<IRota>('viagem', ref => ref
-      .where('destino', '==', this.pesquisaDestino)).valueChanges()
-      
+      .where('destino', '==', this.pesquisaDestino)).valueChanges();
+
     }else if (this.pesquisaDestino.length < 1 ) {
       this.rotas = this.firestore.collection<IRota>('viagem', ref => ref
-      .where('origem', '==', this.pesquisaOrigem)).valueChanges()
+      .where('origem', '==', this.pesquisaOrigem)).valueChanges();
 
     }else{
       this.rotas = this.firestore.collection<IRota>('viagem', ref => ref
       .where('origem', '==', this.pesquisaOrigem)
-      .where('destino', '==', this.pesquisaDestino)).valueChanges()
+      .where('destino', '==', this.pesquisaDestino)).valueChanges();
     }
-   
-  }
-
-  
-  
 
   }
-  
+
+  digitando(origem: any, destino: any){
+    this.rota.subscribe(data => {
+      this.sugestoes = data.filter(item => item.origem.toLowerCase().includes(origem.toLowerCase()));
+      this.sugestoes = data.filter(item => item.destino.toLowerCase().includes(destino.toLowerCase()));
+
+    });
+  }
+
+
+
+
+  }
+

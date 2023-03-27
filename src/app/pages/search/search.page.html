@@ -1,11 +1,19 @@
 <ion-content>
   <div class="form">
-    <ion-item >
-      <ion-searchbar [(ngModel)]="pesquisaOrigem" autocomplete="on" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Origem"></ion-searchbar>
-    </ion-item>
-    <ion-item >
-      <ion-searchbar [(ngModel)]="pesquisaDestino" autocomplete="on" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Destino" ></ion-searchbar>
-    </ion-item>
+    <ion-searchbar [(ngModel)]="origem" (ionChange)="digitando(origem, this.destino)" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Destino" ></ion-searchbar>
+    <ion-list>
+      <ion-item *ngIf="sugestoes.length > 0" >
+        <ion-label (click)="this.pesquisaOrigem = sugestoes[0].origem"> {{ sugestoes[0].origem }}</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-searchbar [(ngModel)]="destino" (ionChange)="digitando(this.origem, destino)" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Origem" ></ion-searchbar>
+
+    <ion-list>
+      <ion-item *ngIf="sugestoes.length > 0">
+        <ion-label (click)="this.destino = sugestoes[0].destino"> {{ sugestoes[0].destino }}</ion-label>
+      </ion-item>
+    </ion-list>
 
 
 
@@ -47,13 +55,13 @@
 
       <h3>Resultados</h3>
     <div style="padding-bottom: 55px;">
-      
+
       <ion-card *ngFor="let rota of rotas | async">
         <ion-card-header>
           <ion-card-title>Viagem</ion-card-title>
           <ion-card-subtitle>{{rota.origem}}<ion-icon name="arrow-forward-outline"></ion-icon>{{rota.destino}} </ion-card-subtitle>
         </ion-card-header>
-      
+
         <ion-card-content>
           <ion-item lines="none">
             <ion-label color="dark" >{{rota.dataI}}</ion-label><br>
@@ -68,7 +76,7 @@
       </ion-card>
     </div>
 
-     
+
 
     </div>
 

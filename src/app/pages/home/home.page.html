@@ -1,23 +1,22 @@
 <ion-content>
   <div class="form">
-  <div>
-    
-    
+
+
       <ion-searchbar [(ngModel)]="origem" (ionChange)="digitando(origem, this.destino)" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Destino" ></ion-searchbar>
       <ion-list>
         <ion-item *ngIf="sugestoes.length > 0" >
           <ion-label (click)="this.origem = sugestoes[0].origem"> {{ sugestoes[0].origem }}</ion-label>
         </ion-item>
       </ion-list>
-   
+
       <ion-searchbar [(ngModel)]="destino" (ionChange)="digitando(this.origem, destino)" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Origem" ></ion-searchbar>
-    
+
       <ion-list>
         <ion-item *ngIf="sugestoes.length > 0">
           <ion-label (click)="this.destino = sugestoes[0].destino"> {{ sugestoes[0].destino }}</ion-label>
         </ion-item>
       </ion-list>
-  </div>
+
 
 
     <ion-item id="open-custom-dialog" class="open-modal">
