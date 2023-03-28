@@ -22,14 +22,13 @@ export class HomePage implements OnInit {
   dateValue2 = format(new Date(), 'yyyy-MM-dd')/* +'T09:00:00;000Z' */;
   formattedString='';
   formattedString2='';
-
   isModalOpen = false;
   origem: string;
   destino: string;
   promocao: Observable<Array<IPromocao>> ;
   rota: Observable<Array<IRota>> ;
   sugestoes: IRota[] = [];
-
+  showModal = false;
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
@@ -107,4 +106,6 @@ export class HomePage implements OnInit {
 
      await alert.present();
    }
+
+   
 }

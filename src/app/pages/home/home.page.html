@@ -9,7 +9,7 @@
         </ion-item>
       </ion-list>
 
-      <ion-searchbar [(ngModel)]="origem" (ionChange)="digitando(origem, this.destino)" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Origem" ></ion-searchbar>
+      <ion-searchbar [(ngModel)]="origem" (ionChange)=" digitando(origem, this.destino)" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Origem" ></ion-searchbar>
       <ion-list>
         <ion-item *ngIf="sugestoes.length > 0">
           <ion-label (click)="this.origem = sugestoes[0].origem"> {{ sugestoes[0].origem }}</ion-label>
@@ -47,9 +47,14 @@
       [value]="dateValue2" size="cover"
       (ionChange)="dateChanged2(datetime2.value)"
       showDefaultButtons="">
+      [disabled]="idaVoltaChecked"
       </ion-datetime>
     </ng-template>
   </ion-modal>
+  <ion-item lines="none">
+    <ion-checkbox [(ngModel)]="showModal"></ion-checkbox>
+    <ion-label>Ida e Volta</ion-label>
+  </ion-item>
 
       <ion-button expand="full" (click)="pesquisar(origem, destino, formattedString, formattedString2)">Pesquisar</ion-button>
 

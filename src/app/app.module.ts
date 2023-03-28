@@ -11,7 +11,8 @@ import { HeaderComponent} from './components/template/header/header.component';
 import { FooterComponent} from './components/template/footer/footer.component';
 import { PerfilComponent} from './components/template/perfil/perfil.component';
 import { environment } from 'src/environments/environment';
-
+import { FormsModule } from '@angular/forms';
+import { ModalController } from '@ionic/angular'; // importando o ModalController
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { environment } from 'src/environments/environment';
     HeaderComponent,
     FooterComponent,
     PerfilComponent],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [ModalController,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy, }],
   bootstrap: [AppComponent],
   imports: [
     BrowserModule,
@@ -29,6 +30,8 @@ import { environment } from 'src/environments/environment';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    FormsModule,
+    
 
   ],
 
