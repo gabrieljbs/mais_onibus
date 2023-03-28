@@ -1,13 +1,13 @@
 <ion-content>
   <div class="form">
-    <ion-searchbar [(ngModel)]="origem" (ionChange)="digitando(origem, this.destino)" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Destino" ></ion-searchbar>
+    <ion-searchbar [(ngModel)]="this.pesquisaDestino" (ionChange)="digitando(this.pesquisaOrigem, this.destino)" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Destino" ></ion-searchbar>
     <ion-list>
       <ion-item *ngIf="sugestoes.length > 0" >
         <ion-label (click)="this.pesquisaOrigem = sugestoes[0].origem"> {{ sugestoes[0].origem }}</ion-label>
       </ion-item>
     </ion-list>
 
-    <ion-searchbar [(ngModel)]="destino" (ionChange)="digitando(this.origem, destino)" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Origem" ></ion-searchbar>
+    <ion-searchbar [(ngModel)]="this.pesquisaOrigem" (ionChange)="digitando(this.origem, this.pesquisaDestino)" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Origem" ></ion-searchbar>
 
     <ion-list>
       <ion-item *ngIf="sugestoes.length > 0">
@@ -64,10 +64,10 @@
 
         <ion-card-content>
           <ion-item lines="none">
-            <ion-label color="dark" >{{rota.dataI}}</ion-label><br>
+            <ion-label color="dark" > Ida {{rota.dataIda}}</ion-label><br>
           </ion-item>
           <ion-item l>
-            <ion-label color="dark" >{{rota.dataV}}</ion-label><br>
+            <ion-label color="dark"  *ngIf="rota.dataVolta">{{' Volta' + rota.dataVolta}}</ion-label><br>
           </ion-item >
           <ion-item lines="none">
             <ion-label color="dark" slot="end"><h1>R$ {{rota.preco}}</h1></ion-label><br>

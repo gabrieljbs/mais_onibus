@@ -76,39 +76,36 @@ export class SearchPage implements OnInit {
 
     this.route.queryParamMap
       .subscribe((params)=>{
-        this.origem = params.get("cidadeA");
-        this.destino = params.get("cidadeB");
-        console.log(this.formattedString = params.get("dataI"));
-        console.log(this.formattedString2 = params.get("dataV"));
-
-        console.log(this.origem,this.destino);
-
-
+        this.buscar(params.get("cidadeOrigem"),params.get("cidadeDestino"), params.get("dataIda"), params.get("data"));
     });
 
-    this.rotas = this.firestore.collection<IRota>('viagem').valueChanges();
+  };
 
-  }
-
-  buscar(cidadeA,cidadeB){
-    this.pesquisaOrigem = cidadeA;
-    this.pesquisaDestino = cidadeB;
-
-    if (cidadeA == null ) {
+  buscar(cidadeOrigem, cidadeDestino, dataIda, dataVolta){
+    this.pesquisaOrigem = cidadeOrigem;
+    this.pesquisaDestino = cidadeDestino;
+    this.formattedString = dataIda;
+    this.formattedString2 = dataVolta;
+    
+    if (cidadeOrigem == null && dataVolta == null) {
 
       this.rotas = this.firestore.collection<IRota>('viagem', ref => ref
-      .where('destino', '==', cidadeB)).valueChanges();
+      .where('destino', '==', cidadeDestino)
+      .where('dataIda', '==', dataIda )).valueChanges()
 
-    }else if (cidadeB == null ) {
+    }else if (cidadeDestino == null && dataVolta == null) {
       this.rotas = this.firestore.collection<IRota>('viagem', ref => ref
-      .where('origem', '==', cidadeA)).valueChanges();
+      .where('origem', '==',cidadeOrigem)
+      .where('dataIda', '==', dataIda )).valueChanges()
 
     }else{
       this.rotas = this.firestore.collection<IRota>('viagem', ref => ref
-      .where('origem', '==', cidadeA)
-      .where('destino', '==', cidadeB)).valueChanges();
-    }
+      .where('origem', '==', cidadeOrigem)
+      .where('destino', '==', cidadeDestino)
+      .where('dataIda', '==', dataIda)).valueChanges()
 
+    }
+    
   }
   pesquisar(){
 
@@ -124,7 +121,8 @@ export class SearchPage implements OnInit {
     }else{
       this.rotas = this.firestore.collection<IRota>('viagem', ref => ref
       .where('origem', '==', this.pesquisaOrigem)
-      .where('destino', '==', this.pesquisaDestino)).valueChanges();
+      .where('destino', '==', this.pesquisaDestino)
+      .where('dataIda',"==", this.formattedString)).valueChanges()
     }
 
   }

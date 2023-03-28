@@ -38,33 +38,32 @@ export class RotasPage implements OnInit {
 
     this.route.queryParamMap
       .subscribe((params)=>{
-        this.pesquisaOrigem = params.get("origem");
+        this.pesquisaOrigem = params.get("cidadeA");
         this.pesquisaDestino = params.get("cidadeB");
         this.buscar(this.pesquisaOrigem,this.pesquisaDestino);
         console.log(this.pesquisaOrigem,this.pesquisaDestino);
     });
 
-  };
+  }
 
   buscar(cidadeA,cidadeB){
     this.pesquisaOrigem = cidadeA;
     this.pesquisaDestino = cidadeB;
-    console.log(this.pesquisaDestino,this.pesquisaOrigem);
-    if (this.pesquisaOrigem == null ) {
 
+    if (cidadeA == null ) {
+      
       this.rotas = this.firestore.collection<IRota>('rota', ref => ref
-      .where('destino', '==', this.pesquisaDestino)).valueChanges()
-
-    }else if (this.pesquisaDestino == null ) {
+      .where('destino', '==', cidadeB)).valueChanges()
+      
+    }else if (cidadeB == null ) {
       this.rotas = this.firestore.collection<IRota>('rota', ref => ref
-      .where('origem', '==', this.pesquisaOrigem)).valueChanges()
+      .where('origem', '==', cidadeA)).valueChanges()
 
     }else{
       this.rotas = this.firestore.collection<IRota>('rota', ref => ref
-      .where('origem', '==', this.pesquisaOrigem)
-      .where('destino', '==', this.pesquisaDestino)).valueChanges()
+      .where('origem', '==', cidadeA)
+      .where('destino', '==', cidadeB)).valueChanges()
     }
-    console.log(this.pesquisaDestino,this.pesquisaOrigem);
   }
   pesquisar(){
 

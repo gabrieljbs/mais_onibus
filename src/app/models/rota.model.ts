@@ -9,8 +9,8 @@ export default interface IRota{
     origem: string;
     placa: string;
     img: string;
-    dataI: string;
-    dataV: string;
-    preco: number;
+    dataIda: string;
+    dataVolta: string;
+    preco: string;
     status: string;
 }

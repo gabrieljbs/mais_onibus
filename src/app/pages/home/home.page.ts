@@ -35,12 +35,9 @@ export class HomePage implements OnInit {
     this.isModalOpen = isOpen;
   }
 
-
-
   constructor(
     private alertController: AlertController,
     private router: Router,
-    private UserS:UserService,
     private firestore: AngularFirestore,
   )
   {this.setToday()}
@@ -73,20 +70,23 @@ export class HomePage implements OnInit {
     this.rota = this.firestore.collection<IRota>('viagem').valueChanges();
 
   }
-
-  digitando(origem: any, destino: any){
+  async digitando(destino: any,origem: any){
+    console.log("Origem:" + origem )
+    console.log("Destino:" + destino)
     this.rota.subscribe(data => {
-      this.sugestoes = data.filter(item => item.origem.toLowerCase().includes(origem.toLowerCase()));
       this.sugestoes = data.filter(item => item.destino.toLowerCase().includes(destino.toLowerCase()));
+      this.sugestoes = data.filter(item => item.origem.toLowerCase().includes(origem.toLowerCase()));
+      
 
     });
   }
 
 
+
   pesquisar(origem, destino, formattedString, formattedString2){
     try{
 
-      this.router.navigate(['/search'], {queryParams:{cidadeA:origem, cidadeB:destino, dataI:formattedString , dataV:formattedString2 }});
+      this.router.navigate(['/search'], {queryParams:{cidadeOrigem:origem, cidadeDestino:destino, dataIda:formattedString, dataVolta:formattedString2 }});
 
     }
     catch(err){
