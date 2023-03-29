@@ -23,7 +23,7 @@
       <ion-text slot="end">{{formattedString}}</ion-text>
     </ion-item>
 
-    <ion-item id="open-custom-dialog2" class="open-modal">
+    <ion-item id="open-custom-dialog2" class="open-modal" [disabled]="!idaVoltaChecked">
       <ion-label>Data de volta</ion-label>
       <ion-text slot="end">{{formattedString2}}</ion-text>
     </ion-item>
@@ -40,19 +40,19 @@
     </ng-template>
   </ion-modal>
 
-  <ion-modal id="datetime" #modal trigger="open-custom-dialog2">
+  <ion-modal  id="datetime" #modal trigger="open-custom-dialog2" >
     <ng-template>
       <ion-datetime
       #datetime2
       [value]="dateValue2" size="cover"
-      (ionChange)="dateChanged2(datetime2.value)"
+      (ionChange)="dateChanged(datetime2.value)"
       showDefaultButtons="">
-      [disabled]="idaVoltaChecked"
       </ion-datetime>
     </ng-template>
   </ion-modal>
+
   <ion-item lines="none">
-    <ion-checkbox [(ngModel)]="showModal"></ion-checkbox>
+    <ion-checkbox [(ngModel)]="idaVoltaChecked"></ion-checkbox>
     <ion-label>Ida e Volta</ion-label>
   </ion-item>
 
@@ -61,7 +61,7 @@
       <h3>Promoções</h3>
 
       <ion-card *ngFor="let promocoes of promocao | async">
-        <img alt="Silhouette of mountains" src="{{promocoes.img}}" />
+        <img alt="Imagens" src="{{promocoes.img}}" />
         <ion-card-header>
           <ion-card-title>{{promocoes.cidade}}</ion-card-title>
           <ion-card-subtitle>Preço: R$ {{promocoes.preco}}</ion-card-subtitle>

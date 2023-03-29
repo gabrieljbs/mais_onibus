@@ -29,6 +29,7 @@ export class HomePage implements OnInit {
   rota: Observable<Array<IRota>> ;
   sugestoes: IRota[] = [];
   showModal = false;
+  public idaVoltaChecked: boolean = true;
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
@@ -38,6 +39,7 @@ export class HomePage implements OnInit {
     private alertController: AlertController,
     private router: Router,
     private firestore: AngularFirestore,
+    
   )
   {this.setToday()}
 

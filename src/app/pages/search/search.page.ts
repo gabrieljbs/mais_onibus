@@ -76,7 +76,7 @@ export class SearchPage implements OnInit {
 
     this.route.queryParamMap
       .subscribe((params)=>{
-        this.buscar(params.get("cidadeOrigem"),params.get("cidadeDestino"), params.get("dataIda"), params.get("data"));
+        this.buscar(params.get("cidadeOrigem"),params.get("cidadeDestino"), params.get("dataIda"), params.get("dataVolta"));
     });
 
   };
@@ -86,6 +86,8 @@ export class SearchPage implements OnInit {
     this.pesquisaDestino = cidadeDestino;
     this.formattedString = dataIda;
     this.formattedString2 = dataVolta;
+
+    console.log(this.formattedString2)
     
     if (cidadeOrigem == null && dataVolta == null) {
 
