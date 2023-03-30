@@ -10,6 +10,9 @@ export class DetailsPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+
+
   }
 
 }
