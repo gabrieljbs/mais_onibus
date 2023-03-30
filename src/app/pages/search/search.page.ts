@@ -76,7 +76,7 @@ export class SearchPage implements OnInit {
 
     this.route.queryParamMap
       .subscribe((params)=>{
-        this.buscar(params.get("cidadeOrigem"),params.get("cidadeDestino"), params.get("dataIda"), params.get("dataVolta"));
+        this.buscar(params.get('cidadeOrigem'),params.get('cidadeDestino'), params.get('dataIda'), params.get('dataVolta'));
     });
 
   };
@@ -86,28 +86,26 @@ export class SearchPage implements OnInit {
     this.pesquisaDestino = cidadeDestino;
     this.formattedString = dataIda;
     this.formattedString2 = dataVolta;
+;
 
-    console.log(this.formattedString2)
-    
     if (cidadeOrigem == null && dataVolta == null) {
 
       this.rotas = this.firestore.collection<IRota>('viagem', ref => ref
       .where('destino', '==', cidadeDestino)
-      .where('dataIda', '==', dataIda )).valueChanges()
-
+      .where('dataIda', '==', dataIda )).valueChanges();
     }else if (cidadeDestino == null && dataVolta == null) {
       this.rotas = this.firestore.collection<IRota>('viagem', ref => ref
       .where('origem', '==',cidadeOrigem)
-      .where('dataIda', '==', dataIda )).valueChanges()
+      .where('dataIda', '==', dataIda )).valueChanges();
 
     }else{
       this.rotas = this.firestore.collection<IRota>('viagem', ref => ref
       .where('origem', '==', cidadeOrigem)
       .where('destino', '==', cidadeDestino)
-      .where('dataIda', '==', dataIda)).valueChanges()
+      .where('dataIda', '==', dataIda)).valueChanges();
 
     }
-    
+
   }
   pesquisar(){
 
@@ -124,7 +122,7 @@ export class SearchPage implements OnInit {
       this.rotas = this.firestore.collection<IRota>('viagem', ref => ref
       .where('origem', '==', this.pesquisaOrigem)
       .where('destino', '==', this.pesquisaDestino)
-      .where('dataIda',"==", this.formattedString)).valueChanges()
+      .where('dataIda', '==' , this.formattedString)).valueChanges();
     }
 
   }
@@ -138,6 +136,15 @@ export class SearchPage implements OnInit {
   }
 
 
+  view(id: string){
+    try{
+      this.router.navigate(['/view'], {queryParams:{codigo: id}});
+    }
+    catch(err){
+      console.log('Erro',err);
+    }
+
+  }
 
 
   }

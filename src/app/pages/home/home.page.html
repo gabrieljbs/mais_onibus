@@ -60,7 +60,7 @@
 
       <h3>Promoções</h3>
 
-      <ion-card *ngFor="let promocoes of promocao | async">
+      <ion-card *ngFor="let promocoes of promocao | async ">
         <img alt="Imagens" src="{{promocoes.img}}" />
         <ion-card-header>
           <ion-card-title>{{promocoes.cidade}}</ion-card-title>

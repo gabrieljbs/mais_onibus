@@ -20,7 +20,7 @@ const routes: Routes = [
     path: 'rotas',
     loadChildren: () => import('./rotas/rotas.module').then( m => m.RotasPageModule)
   },
-  
+
   {
     path: 'cadastro',
     loadChildren: () => import('./cadastro/cadastro.module').then( m => m.CadastroPageModule)
@@ -29,11 +29,12 @@ const routes: Routes = [
     path: 'perfil',
     loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
   },
-  
+
   {
     path: 'viagens',
     loadChildren: () => import('./viagens/viagens.module').then( m => m.ViagensPageModule)
-  },  {
+  },
+  {
     path: 'confirmacao',
     loadChildren: () => import('./confirmacao/confirmacao.module').then( m => m.ConfirmacaoPageModule)
   },
@@ -41,9 +42,14 @@ const routes: Routes = [
     path: 'search',
     loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
   },
+  {
+    path: 'details',
+    loadChildren: () => import('./search/search.module').then( m => m.DetailsPageModule)
+  },
 
 
-  
+
+
 
 ];
 

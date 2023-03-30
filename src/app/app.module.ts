@@ -31,7 +31,7 @@ import { ModalController } from '@ionic/angular'; // importando o ModalControlle
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     FormsModule,
-    
+
 
   ],
 

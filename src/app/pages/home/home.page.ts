@@ -39,7 +39,7 @@ export class HomePage implements OnInit {
     private alertController: AlertController,
     private router: Router,
     private firestore: AngularFirestore,
-    
+
   )
   {this.setToday()}
 
@@ -77,7 +77,7 @@ export class HomePage implements OnInit {
     this.rota.subscribe(data => {
       this.sugestoes = data.filter(item => item.destino.toLowerCase().includes(destino.toLowerCase()));
       this.sugestoes = data.filter(item => item.origem.toLowerCase().includes(origem.toLowerCase()));
-      
+
 
     });
   }
@@ -109,5 +109,5 @@ export class HomePage implements OnInit {
      await alert.present();
    }
 
-   
+
 }
