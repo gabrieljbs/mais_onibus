@@ -24,7 +24,6 @@ export class SearchPage implements OnInit {
   formattedString2: string;
   origem: string;
   destino: string;
-  cod: String ='';
   pesquisaOrigem = '';
   pesquisaDestino ='';
   rota: Observable<Array<IRota>> ;
@@ -136,9 +135,9 @@ export class SearchPage implements OnInit {
   }
 
 
-  view(id: string){
+  details(id: string){
     try{
-      this.router.navigate(['/view'], {queryParams:{codigo: id}});
+      this.router.navigate(['/details'], {queryParams:{codigo: id}});
     }
     catch(err){
       console.log('Erro',err);
