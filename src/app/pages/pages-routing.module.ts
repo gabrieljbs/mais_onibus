@@ -16,10 +16,6 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
-  {
-    path: 'rotas',
-    loadChildren: () => import('./rotas/rotas.module').then( m => m.RotasPageModule)
-  },
 
   {
     path: 'cadastro',
@@ -28,11 +24,6 @@ const routes: Routes = [
   {
     path: 'perfil',
     loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
-  },
-
-  {
-    path: 'viagens',
-    loadChildren: () => import('./viagens/viagens.module').then( m => m.ViagensPageModule)
   },
   {
     path: 'confirmacao',
@@ -45,7 +36,8 @@ const routes: Routes = [
   {
     path: 'details',
     loadChildren: () => import('./details/details.module').then( m => m.DetailsPageModule)
-  },  {
+  },
+  {
     path: 'pagamento',
     loadChildren: () => import('./pagamento/pagamento.module').then( m => m.PagamentoPageModule)
   },

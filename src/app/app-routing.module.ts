@@ -24,16 +24,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/confirmacao/confirmacao.module').then( m => m.ConfirmacaoPageModule)
   },
   {
-    path: 'viagens',
-    loadChildren: () => import('./pages/viagens/viagens.module').then( m => m.ViagensPageModule)
-  },
-  {
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
-  },
-  {
-    path: 'rotas',
-    loadChildren: () => import('./pages/rotas/rotas.module').then( m => m.RotasPageModule)
   },
   {
     path: 'login',

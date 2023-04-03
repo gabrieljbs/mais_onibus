@@ -56,11 +56,11 @@
     <ion-label>Ida e Volta</ion-label>
   </ion-item>
 
-      <ion-button expand="full" (click)="pesquisar(origem, destino, formattedString, formattedString2)">Pesquisar</ion-button>
+      <ion-button expand="full" (click)="search(origem, destino, formattedString, formattedString2)">Pesquisar</ion-button>
 
       <h3>Promoções</h3>
 
-      <ion-card *ngFor="let promocoes of promocao | async ">
+      <ion-card *ngFor="let promocoes of promocao | async" (click)="viewPromotin(promocoes.cidade)">
         <img alt="Imagens" src="{{promocoes.img}}" />
         <ion-card-header>
           <ion-card-title>{{promocoes.cidade}}</ion-card-title>

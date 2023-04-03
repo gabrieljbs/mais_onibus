@@ -3,7 +3,6 @@ import { Router, ActivatedRoute  } from '@angular/router';
 import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { format, parseISO } from 'date-fns';
 import { UserService } from 'src/app/services/user.service';
-import { Search } from '../../models/search';
 import IRota from 'src/app/models/rota.model';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
@@ -44,12 +43,7 @@ export class SearchPage implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private firestore: AngularFirestore,
-    private UserS:UserService,
-
-  )
-  {
-   this.setToday();
-  }
+    private UserS:UserService,){}
 
   setToday(){
     this.formattedString = format(parseISO(format(new Date(),'yyyy-MM-dd')/* +'T09:00:00.000Z' */),'d MMM, yyyy');
@@ -72,20 +66,27 @@ export class SearchPage implements OnInit {
   }
 
   ngOnInit() {
-
+    this.setToday();
     this.route.queryParamMap
       .subscribe((params)=>{
-        this.buscar(params.get('cidadeOrigem'),params.get('cidadeDestino'), params.get('dataIda'), params.get('dataVolta'));
+
+        if(params.get('destino') == null){
+          this.search(params.get('cidadeOrigem'),params.get('cidadeDestino'), params.get('dataIda'), params.get('dataVolta'));
+        }else{
+          this.search(params.get('cidadeOrigem'),params.get('cidadeDestino'), params.get('dataIda'), params.get('dataVolta'));
+        }
+
     });
 
   };
 
-  buscar(cidadeOrigem, cidadeDestino, dataIda, dataVolta){
+
+  search(cidadeOrigem, cidadeDestino, dataIda, dataVolta){
     this.pesquisaOrigem = cidadeOrigem;
     this.pesquisaDestino = cidadeDestino;
     this.formattedString = dataIda;
     this.formattedString2 = dataVolta;
-;
+
 
     if (cidadeOrigem == null && dataVolta == null) {
 
@@ -97,25 +98,32 @@ export class SearchPage implements OnInit {
       .where('origem', '==',cidadeOrigem)
       .where('dataIda', '==', dataIda )).valueChanges();
 
+    }else if (cidadeDestino == null && dataVolta !== null){
+      this.rotas = this.firestore.collection<IRota>('viagem', ref => ref
+      .where('origem', '==', cidadeOrigem)
+      .where('destino', '==', cidadeDestino)
+      .where('dataIda', '==', dataIda)
+      .where('dataVolta', '==', dataVolta)).valueChanges();
+
     }else{
       this.rotas = this.firestore.collection<IRota>('viagem', ref => ref
       .where('origem', '==', cidadeOrigem)
       .where('destino', '==', cidadeDestino)
       .where('dataIda', '==', dataIda)).valueChanges();
-
-    }
-
   }
+}
   pesquisar(){
 
     if (this.pesquisaOrigem.length < 1 ) {
 
       this.rotas = this.firestore.collection<IRota>('viagem', ref => ref
-      .where('destino', '==', this.pesquisaDestino)).valueChanges();
+      .where('destino', '==', this.pesquisaDestino)
+      .where('dataIda', '==', this.formattedString )).valueChanges();
 
     }else if (this.pesquisaDestino.length < 1 ) {
       this.rotas = this.firestore.collection<IRota>('viagem', ref => ref
-      .where('origem', '==', this.pesquisaOrigem)).valueChanges();
+      .where('origem', '==', this.pesquisaOrigem)
+      .where('dataIda', '==', this.formattedString )).valueChanges();
 
     }else{
       this.rotas = this.firestore.collection<IRota>('viagem', ref => ref

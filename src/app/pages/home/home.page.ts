@@ -72,8 +72,8 @@ export class HomePage implements OnInit {
 
   }
   async digitando(destino: any,origem: any){
-    console.log("Origem:" + origem )
-    console.log("Destino:" + destino)
+    console.log('Origem:' + origem );
+    console.log('Destino:' + destino);
     this.rota.subscribe(data => {
       this.sugestoes = data.filter(item => item.destino.toLowerCase().includes(destino.toLowerCase()));
       this.sugestoes = data.filter(item => item.origem.toLowerCase().includes(origem.toLowerCase()));
@@ -84,11 +84,9 @@ export class HomePage implements OnInit {
 
 
 
-  pesquisar(origem, destino, formattedString, formattedString2){
+  viewPromotin(cidade){
     try{
-
-      this.router.navigate(['/search'], {queryParams:{cidadeOrigem:origem, cidadeDestino:destino, dataIda:formattedString, dataVolta:formattedString2 }});
-
+      this.router.navigate(['/search'], {queryParams:{cidadeDestino:cidade, dataIda:this.formattedString}});
     }
     catch(err){
       console.log('Erro',err);
@@ -96,7 +94,18 @@ export class HomePage implements OnInit {
 
   }
 
-  confirma(){}
+  search(origem, destino, formattedString, formattedString2){
+    try{
+
+      this.router.navigate(['/search'], {
+        queryParams:{cidadeOrigem:origem, cidadeDestino:destino, dataIda:formattedString, dataVolta:formattedString2 }});
+
+    }
+    catch(err){
+      console.log('Erro',err);
+    }
+
+  }
   async alert(){
     const alert = await this.alertController.create({
        header: 'Aviso',
