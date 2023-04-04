@@ -75,8 +75,8 @@ export class HomePage implements OnInit {
     console.log('Origem:' + origem );
     console.log('Destino:' + destino);
     this.rota.subscribe(data => {
-      this.sugestoes = data.filter(item => item.destino.toLowerCase().includes(destino.toLowerCase()));
-      this.sugestoes = data.filter(item => item.origem.toLowerCase().includes(origem.toLowerCase()));
+      this.sugestoes = data.filter(data => data.destino.toLowerCase().includes(destino.toLowerCase()));
+      this.sugestoes = data.filter(data => data.origem.toLowerCase().includes(origem.toLowerCase()));
 
 
     });

@@ -120,7 +120,7 @@ export class SearchPage implements OnInit {
       .where('destino', '==', this.pesquisaDestino)
       .where('dataIda', '==', this.formattedString )).valueChanges();
 
-    }else if (this.pesquisaDestino.length < 1 ) {
+    }else if (this.pesquisaDestino !== null ) {
       this.rotas = this.firestore.collection<IRota>('viagem', ref => ref
       .where('origem', '==', this.pesquisaOrigem)
       .where('dataIda', '==', this.formattedString )).valueChanges();
