@@ -37,3 +37,9 @@ ion-modal{
         --backgound: transparent;
     }
 }
+
+.my-action-sheet {
+    display: flex;
+    margin: auto;
+    overflow: auto;
+}

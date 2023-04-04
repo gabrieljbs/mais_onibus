@@ -29,7 +29,7 @@ export class HomePage implements OnInit {
   rota: Observable<Array<IRota>> ;
   sugestoes: IRota[] = [];
   showModal = false;
-  public idaVoltaChecked: boolean = true;
+  public idaVoltaChecked: boolean = false;
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
@@ -71,7 +71,7 @@ export class HomePage implements OnInit {
     this.rota = this.firestore.collection<IRota>('viagem').valueChanges();
 
   }
-  async digitando(destino: any,origem: any){
+   digitando(destino: any,origem: any){
     console.log('Origem:' + origem );
     console.log('Destino:' + destino);
     this.rota.subscribe(data => {

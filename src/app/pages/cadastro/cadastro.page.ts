@@ -68,16 +68,16 @@ export class CadastroPage implements OnInit {
               await this.showLoading();
               const result = await this.userService.register(this.user);
               this.router.navigateByUrl('login');//Mandar para home após registro
-              this.presentToast('<h1>Usuário criado com sucesso. Agora faça o login para acessar o sistema!</h1>');
+              this.presentToast('<p>Usuário criado com sucesso. Agora faça o login para acessar o sistema!</p>');
             }
             catch(error){
               console.log(JSON.stringify(error));
               if(error.code === 'auth/email-already-in-use'){
-                this.presentToast('<h1>Este e-mail já está sendo utilizado!</h1>');
+                this.presentToast('<p>Este e-mail já está sendo utilizado!</p>');
               }else if(error.code === 'auth/weak-password'){
-                this.presentToast('<h1>Senha fraca. Tente outra senha!</h1');
+                this.presentToast('<p>Senha fraca. Tente outra senha!</p');
               }else{
-                this.presentToast('<h1>Erro desconhecido.</h1>');
+                this.presentToast('<p>Erro desconhecido.</p>');
               }
             }
             this.loading.dismiss();
@@ -93,7 +93,7 @@ export class CadastroPage implements OnInit {
     const toast = await this.toastController.create({
       message: mensagem,
       duration: 3000,
-      position: 'bottom'
+      position: 'middle'
     });
 
     await toast.present();

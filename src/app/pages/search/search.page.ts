@@ -113,8 +113,8 @@ export class SearchPage implements OnInit {
   }
 }
   pesquisar(){
-
-    if (this.pesquisaOrigem.length < 1 ) {
+    console.log('função pesquisar')
+    if (this.pesquisaOrigem == null  ) {
 
       this.rotas = this.firestore.collection<IRota>('viagem', ref => ref
       .where('destino', '==', this.pesquisaDestino)
