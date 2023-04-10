@@ -14,7 +14,7 @@ import { Register } from '../../models/register';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  
+
   public user: Register;
 
   constructor(
@@ -27,7 +27,7 @@ export class LoginPage implements OnInit {
     private loginServices: LoginService
 
   ) {
-    
+
     this.user = {
       email: '',
       password: '',
@@ -37,14 +37,14 @@ export class LoginPage implements OnInit {
       dataNasc: '',
       telefone: '',
     };
-    
+
    }
 
   ngOnInit() {
   }
 
   async entrar(){
-
+    console.log('função entrar sendo chamada');
     try{
       const req = await this.loginServices.login(this.user,);
       this.router.navigateByUrl('home');
@@ -52,11 +52,11 @@ export class LoginPage implements OnInit {
     catch(error){
       console.log(JSON.stringify(error));
       if(error.code === 'auth/email-already-in-use'){
-        this.presentToast('<h1>Este e-mail já está sendo utilizado!</h1>');
+        this.presentToast('Este e-mail já está sendo utilizado!');
       }else if(error.code === 'auth/weak-password'){
-        this.presentToast('<h1>Senha Errada.');
+        this.presentToast('Senha Errada.');
       }else{
-        this.presentToast('<h1>Erro desconhecido.</h1>');
+        this.presentToast('Erro desconhecido.');
       }
     }
   }
@@ -69,21 +69,5 @@ export class LoginPage implements OnInit {
     });
     await toast.present();
   }
-
-  /* private async online (){
-
-    try{
-      this.router.navigate(['/hender'], {queryParams:{online: this.email}})
-      this.router.navigateByUrl('home');
-
-
-    }
-    catch(err){
-      console.log('err');
-    }
-
-  }
-
- */
 
 }

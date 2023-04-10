@@ -70,15 +70,15 @@ export class HomePage implements OnInit {
 
     this.rota = this.firestore.collection<IRota>('viagem').valueChanges();
 
+
+
   }
-   digitando(destino: any,origem: any){
+  digitando(origem: any){
     console.log('Origem:' + origem );
-    console.log('Destino:' + destino);
     this.rota.subscribe(data => {
-      this.sugestoes = data.filter(data => data.destino.toLowerCase().includes(destino.toLowerCase()));
-      this.sugestoes = data.filter(data => data.origem.toLowerCase().includes(origem.toLowerCase()));
-
-
+      console.log('Data:', data);
+      const sugestoes = data.map(item => [item.origem, item.destino]);
+      console.log('Data2:', sugestoes[0]);
     });
   }
 

@@ -15,6 +15,8 @@ import { FormsModule } from '@angular/forms';
 import { ModalController } from '@ionic/angular'; // importando o ModalController
 
 
+
+
 @NgModule({
 
   declarations: [
@@ -31,6 +33,7 @@ import { ModalController } from '@ionic/angular'; // importando o ModalControlle
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     FormsModule,
+
 
 
   ],
