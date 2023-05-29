@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/member-ordering */
+/* eslint-disable @typescript-eslint/no-inferrable-types */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, IonDatetime, LoadingController, ToastController } from '@ionic/angular';
@@ -27,9 +29,24 @@ export class HomePage implements OnInit {
   destino: string;
   promocao: Observable<Array<IPromocao>> ;
   rota: Observable<Array<IRota>> ;
+
   sugestoes: IRota[] = [];
+
   showModal = false;
   public idaVoltaChecked: boolean = false;
+
+  public data = [
+    'Belém',
+    'Belo Horizonte',
+    'Fortaleza',
+
+  ];
+  public results = [...this.data];
+
+  handleInput(event) {
+    const query = event.target.value.toLowerCase();
+    this.results = this.data.filter((d) => d.toLowerCase().indexOf(query) > -1);
+  }
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
@@ -41,7 +58,7 @@ export class HomePage implements OnInit {
     private firestore: AngularFirestore,
 
   )
-  {this.setToday()}
+  {this.setToday();}
 
   setToday(){
     this.formattedString = format(parseISO(format(new Date(),'yyyy-MM-dd')/* +'T09:00:00.000Z' */),'d MMM, yyyy');
@@ -73,14 +90,16 @@ export class HomePage implements OnInit {
 
 
   }
-  digitando(origem: any){
-    console.log('Origem:' + origem );
+  sugestao(destino: any, origem: any){
+
+    console.log('Origem:' + destino );
     this.rota.subscribe(data => {
       console.log('Data:', data);
-      const sugestoes = data.map(item => [item.origem, item.destino]);
+      const sugestoes = data.map(item => [item.destino, item.origem]);
       console.log('Data2:', sugestoes[0]);
     });
   }
+
 
 
 

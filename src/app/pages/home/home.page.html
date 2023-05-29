@@ -2,21 +2,28 @@
   <div class="form">
 
 
-      <ion-searchbar [(ngModel)]="destino" (ionChange)="digitando(this.destino)" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Destino" ></ion-searchbar>
+      <ion-searchbar [(ngModel)]="this.destino" (ionChange)="sugestao(this.destino, null)" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Destino" ></ion-searchbar>
       <ion-list>
         <ion-item *ngIf="sugestoes.length > 0" >
-          <ion-label (click)="this.destino = sugestoes[0].destino"> {{ sugestoes[0].destino}}</ion-label>
+          <ion-label (click)="this.destino = this.sugestao[0]"> {{ this.sugestoes }}</ion-label>
+
         </ion-item>
       </ion-list>
 
-      <ion-searchbar [(ngModel)]="origem" (ionChange)=" digitando(this.origem)" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Origem" ></ion-searchbar>
+      <ion-searchbar [(ngModel)]="origem" (ionChange)=" sugestao(null, this.origem)" autocorrect="on" search-icon="undefined" show-cancel-button="never" placeholder="Origem" ></ion-searchbar>
       <ion-list>
         <ion-item *ngIf="sugestoes.length > 0">
           <ion-label (click)="this.origem = sugestoes[0].origem"> {{ sugestoes[0].origem }}</ion-label>
         </ion-item>
       </ion-list>
 
+     <!--  <ion-searchbar [debounce]="1000" (ionInput)="handleInput($event)"></ion-searchbar>
 
+      <ion-list style="position: relative; z-index: 9999;">
+        <ion-item *ngFor="let result of results">
+          <ion-label>{{ result }}</ion-label>
+        </ion-item>
+      </ion-list> -->
 
     <ion-item id="open-custom-dialog" class="open-modal">
       <ion-label>Data de Ida</ion-label>
