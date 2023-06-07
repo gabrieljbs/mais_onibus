@@ -40,20 +40,20 @@
       <ion-icon slot="end" name="chevron-forward-outline" color="light"></ion-icon>
     </ion-item>
 
-    <ion-item color="none">
+    <ion-item color="none" >
       <ion-icon name="home-sharp" color="light"></ion-icon>
         <ion-button expand="full" fill="clear" color="light">
-          <ion-label>Inicio</ion-label>
+          <ion-label [routerLink]="['/home']">Inicio</ion-label>
         </ion-button>
-      <ion-icon slot="end" name="chevron-forward-outline" color="light"></ion-icon>
+      <ion-icon [routerLink]="['/home']" slot="end" name="chevron-forward-outline" color="light"></ion-icon>
     </ion-item>
 
     <ion-item color="none">
       <ion-icon name="bus-sharp" color="light"></ion-icon>
         <ion-button expand="full" fill="clear" color="light">
-          <ion-label>Rotas</ion-label>
+          <ion-label [routerLink]="['/search']">Rotas</ion-label>
         </ion-button>
-      <ion-icon slot="end" name="chevron-forward-outline" color="light"></ion-icon>
+      <ion-icon [routerLink]="['/search']" slot="end" name="chevron-forward-outline" color="light"></ion-icon>
     </ion-item>
 
     <ion-item color="none">
@@ -67,7 +67,7 @@
     <ion-item color="none" >
       <ion-icon name="log-out-sharp" color="light"></ion-icon>
         <ion-button expand="full" fill="clear" color="light">
-          <ion-label>Sair</ion-label>
+          <ion-label (click)="sair()">Sair</ion-label>
         </ion-button>
       <ion-icon slot="end" name="chevron-forward-outline" color="light"></ion-icon>
     </ion-item>

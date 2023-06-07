@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth, } from '@angular/fire/compat/auth';
+import { AngularFireAuth,  } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Register } from '../models/register';
 
@@ -10,13 +10,20 @@ import { Register } from '../models/register';
 export class LoginService {
 
   constructor(
-    private auth: AngularFireAuth) {}
+    private auth: AngularFireAuth
+
+    ) {}
 
     async login(registerUser: Register){
 
      const res = await this.auth.signInWithEmailAndPassword(registerUser.email,registerUser.password );
 
 
+
+    }
+
+    async logOut() {
+      const res = await this.auth.signOut();
 
     }
 }

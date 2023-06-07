@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { LoadingController, ToastController } from '@ionic/angular';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import IUsuario from 'src/app/models/user';
-import { Observable } from 'rxjs';
 import { LoginService } from '../../services/login.service';
 import { Register } from '../../models/register';
 
@@ -20,10 +16,7 @@ export class LoginPage implements OnInit {
   constructor(
 
     private router: Router,
-    private firestore: AngularFirestore,
-    private loadingCtrl: LoadingController,
     private toastController: ToastController,
-    private fireAuth: AngularFireAuth,
     private loginServices: LoginService
 
   ) {
@@ -42,6 +35,7 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
+
 
   async entrar(){
     console.log('função entrar sendo chamada');
