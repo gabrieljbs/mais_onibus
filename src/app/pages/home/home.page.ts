@@ -36,9 +36,11 @@ export class HomePage implements OnInit {
   public idaVoltaChecked: boolean = false;
 
   public data = [
-    'Belém',
-    'Belo Horizonte',
-    'Fortaleza',
+    'Belém-PA',
+    'Belo Horizonte-MG',
+    'Fortaleza-CE',
+    'Rio de Janeiro-RJ',
+    'São Paulo-SP'
 
   ];
   public results = [...this.data];
@@ -90,7 +92,7 @@ export class HomePage implements OnInit {
 
 
   }
-  sugestao(destino: any, origem: any){
+  /* sugestao(destino: any, origem: any){
 
     console.log('Origem:' + destino );
     this.rota.subscribe(data => {
@@ -98,8 +100,13 @@ export class HomePage implements OnInit {
       const sugestoes = data.map(item => [item.destino, item.origem]);
       console.log('Data2:', sugestoes[0]);
     });
-  }
+  } */
 
+  sugestao(destino: string, origem: string) {
+    const query = destino.toLowerCase();
+    const sugestoes = this.data.filter(d => d.toLowerCase().indexOf(query) > -1);
+    console.log(sugestoes);
+  }
 
 
 
